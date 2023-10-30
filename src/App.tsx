@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import Drawer from "./components/Drawer";
-import { Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import ProfileCard from "./components/ProfileCard";
-import Skill from "./components/Skill";
-import Project from "./components/Project";
+/** @format */
+
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import Drawer from './components/Drawer';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
+import ProfileCard from './components/ProfileCard';
+import Skill from './components/Skill';
+import Project from './components/Project';
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
+    <main className="App">
+      <section className="container flex relative  rounded-2xl overflow-hidden h-[90vh] max-h-[900px]">
         <Drawer />
         <div className="wrapper">
           <Header />
@@ -24,10 +26,7 @@ function App() {
               </div>
             </div>
             <div className="h-1/2">
-              <div
-                className="text-3xl mb-3 font-bold anim"
-                style={{ animationDelay: "0.3s" }}
-              >
+              <div className="text-3xl mb-3 font-bold anim" style={{ animationDelay: '0.3s' }}>
                 Project
               </div>
               <Project />
@@ -557,8 +556,8 @@ function App() {
             </div> */}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

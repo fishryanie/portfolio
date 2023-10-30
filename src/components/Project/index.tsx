@@ -1,35 +1,17 @@
-import React, { Fragment, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import ImageView, { TypeImageStatus } from "../ImageView";
+/** @format */
 
-const dataProject = [
-  {
-    title: "Carta",
-    category: "ecommerce",
-    picture: `${process.env.PUBLIC_URL}/assets/carta.webp`,
-  },
-  {
-    title: "Jobsbe",
-    category: "ecommerce",
-    picture: `${process.env.PUBLIC_URL}/assets/jobsbe.webp`,
-  },
-  {
-    title: "Sgo",
-    category: "ecommerce",
-    picture: `${process.env.PUBLIC_URL}/assets/sgo.webp`,
-  },
-  {
-    title: "DTM",
-    category: "ecommerce",
-    picture: `${process.env.PUBLIC_URL}/assets/hoivien.webp`,
-  },
-];
+import React, { Fragment, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import ImageView, { TypeImageStatus } from '../ImageView';
+import dataProject from './data.json';
+import { Link } from 'react-router-dom';
+import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 
 export default function Project() {
   const [imageStatus, setImageStatus] = useState<TypeImageStatus>({
     isShow: false,
-    picture: "",
+    picture: '',
   });
 
   return (
@@ -39,21 +21,22 @@ export default function Project() {
         {dataProject.map((item, index) => (
           <div
             key={index}
-            className={`basis-1/4 h-64 rounded-3xl bg-primary overflow-hidden ${
-              index !== 0 && "ms-5"
-            }`}
+            style={{ animationDelay: `0.${4 + index}s` }}
+            className={`basis-1/4 h-64 rounded-3xl bg-primary overflow-hidden anim ${index !== 0 && 'ms-5'}`}
           >
             <img
-              onClick={() => {
-                setImageStatus({ isShow: true, picture: item.picture });
-              }}
+              onClick={() => setImageStatus({ isShow: true, picture: item.picture })}
               className="w-full h-3/5 object-cover"
               src={item.picture}
               alt=""
             />
             <div className="p-4">
-              <p>{item.title}</p>
-              {/* <p>Shopping</p> */}
+              <div>{item.title}</div>
+              {/* <div>{item.category}</div> */}
+              <Link to={''} className="flex items-center hover:font-extrabold">
+                <span className="text-xs">View detail</span>
+                <ArrowLongRightIcon className="w-6 h-6 mx-5" />
+              </Link>
             </div>
           </div>
         ))}

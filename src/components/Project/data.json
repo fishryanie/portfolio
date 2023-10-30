@@ -1,22 +1,22 @@
 [
-    {
-      title: "Carta",
-      category: "ecommerce",
-      picture: `${process.env.PUBLIC_URL}/assets/carta.webp`,
-    },
-    {
-      title: "Jobsbe",
-      category: "ecommerce",
-      picture: `${process.env.PUBLIC_URL}/assets/jobsbe.webp`,
-    },
-    {
-      title: "Sgo",
-      category: "ecommerce",
-      picture: `${process.env.PUBLIC_URL}/assets/sgo.webp`,
-    },
-    {
-      title: "DTM",
-      category: "ecommerce",
-      picture: `${process.env.PUBLIC_URL}/assets/hoivien.webp`,
-    },
-  ]
+  {
+    "title": "Carta",
+    "category": ["e-commerce"],
+    "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
+  },
+  {
+    "title": "Jobsbe",
+    "category": ["career-services"],
+    "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
+  },
+  {
+    "title": "See",
+    "category": ["ride-hailing", "food-delivery"],
+    "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
+  },
+  {
+    "title": "DTM",
+    "category": ["event", "checking", "member-management"],
+    "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
+  }
+]
