@@ -1,0 +1,22 @@
+[
+    {
+      title: "Carta",
+      category: "ecommerce",
+      picture: `${process.env.PUBLIC_URL}/assets/carta.webp`,
+    },
+    {
+      title: "Jobsbe",
+      category: "ecommerce",
+      picture: `${process.env.PUBLIC_URL}/assets/jobsbe.webp`,
+    },
+    {
+      title: "Sgo",
+      category: "ecommerce",
+      picture: `${process.env.PUBLIC_URL}/assets/sgo.webp`,
+    },
+    {
+      title: "DTM",
+      category: "ecommerce",
+      picture: `${process.env.PUBLIC_URL}/assets/hoivien.webp`,
+    },
+  ]
