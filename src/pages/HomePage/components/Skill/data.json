@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Javascript",
+    "value": 90,
+    "strokeColor": "#facc15",
+    "valueColor": "#facc15",
+    "textColor": "#ffffff"
+  },
+  {
+    "title": "React",
+    "value": 80,
+    "strokeColor": "#0ea5e9",
+    "valueColor": "#0ea5e9",
+    "textColor": "#ffffff"
+  },
+  {
+    "title": "Node",
+    "value": 70,
+    "strokeColor": "#16a34a",
+    "valueColor": "#16a34a",
+    "textColor": "#ffffff"
+  },
+  {
+    "title": "React Native",
+    "value": 90,
+    "strokeColor": "#06b6d4",
+    "valueColor": "#06b6d4",
+    "textColor": "#ffffff"
+  },
+  {
+    "title": "Mongodb",
+    "value": 70,
+    "strokeColor": "#854d0e",
+    "valueColor": "#854d0e",
+    "textColor": "#ffffff"
+  }
+]

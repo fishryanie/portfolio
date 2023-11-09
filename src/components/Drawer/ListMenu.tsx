@@ -1,43 +1,54 @@
-import {
-  HomeIcon,
-  UserIcon,
-  BriefcaseIcon,
-  AcademicCapIcon,
-  IdentificationIcon,
-  ChatBubbleLeftRightIcon,
-  ClipboardDocumentListIcon,
-} from "@heroicons/react/24/outline";
+/** @format */
 
 export const listMenu = [
   {
-    group: "MENU",
+    group: 'MENU',
+    childGroup: [
+      { title: 'Home', path: 'home', icon: 'bxs-home' },
+      {
+        title: 'About',
+        path: 'about',
+        icon: 'bxs-id-card',
+      },
+      {
+        title: 'Project',
+        path: 'project',
+        icon: 'bx-code-block',
+      },
+      {
+        title: 'Working',
+        path: 'working',
+        icon: 'bxs-briefcase',
+      },
+      {
+        title: 'Education',
+        path: 'education',
+        icon: 'bxs-graduation',
+      },
+      {
+        title: 'Certificate',
+        path: 'certificate',
+        icon: 'bxs-medal',
+      },
+      {
+        title: 'Contacts',
+        path: 'contacts',
+        icon: 'bxs-contact',
+      },
+    ],
+  },
+  {
+    group: 'OTHER',
     childGroup: [
       {
-        title: "Home",
-        path: "home",
-        icon: <HomeIcon />,
+        title: 'Settings',
+        path: 'settings',
+        icon: 'bxs-cog',
       },
       {
-        title: "About",
-        path: "about",
-        icon: <UserIcon />,
-      },
-      {
-        title: "Project",
-        path: "project",
-        icon: <ClipboardDocumentListIcon />,
-      },
-      { title: "Working", icon: <BriefcaseIcon />, path: "working" },
-      { title: "Education", icon: <AcademicCapIcon />, path: "education" },
-      {
-        title: "Certificate",
-        path: "certificate",
-        icon: <IdentificationIcon />,
-      },
-      {
-        title: "Contacts",
-        path: "contacts",
-        icon: <ChatBubbleLeftRightIcon />,
+        title: 'Logout',
+        path: 'about',
+        icon: 'bx-log-out',
       },
     ],
   },

@@ -1,38 +1,45 @@
-import { createBrowserRouter, useRouteError } from "react-router-dom";
-import App from "../App";
+/** @format */
+
+import { createBrowserRouter, useRouteError } from 'react-router-dom';
+import App from '../App';
+import HomePage from '../pages/HomePage';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "home",
+        path: 'home',
+        element: <HomePage />,
+      },
+      {
+        path: 'about',
         element: <div>Hello world!</div>,
       },
       {
-        path: "about",
+        path: 'project',
         element: <div>Hello world!</div>,
       },
       {
-        path: "project",
+        path: 'project/:id',
         element: <div>Hello world!</div>,
       },
       {
-        path: "working",
+        path: 'working',
         element: <div>Hello world!</div>,
       },
       {
-        path: "education",
+        path: 'education',
         element: <div>Hello world!</div>,
       },
       {
-        path: "certificate",
+        path: 'certificate',
         element: <div>Hello world!</div>,
       },
       {
-        path: "contacts",
+        path: 'contacts',
         element: <div>Hello world!</div>,
       },
     ],

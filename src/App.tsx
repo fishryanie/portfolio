@@ -1,38 +1,22 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import Drawer from './components/Drawer';
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
-import ProfileCard from './components/ProfileCard';
-import Skill from './components/Skill';
-import Project from './components/Project';
 
 function App() {
   return (
-    <main className="App">
-      <section className="container flex relative  rounded-2xl overflow-hidden h-[90vh] max-h-[900px]">
+    <section className="main-app">
+      <section className="container bg-main flex relative rounded-2xl overflow-hidden h-[90vh] max-h-[900px]">
         <Drawer />
-        <div className="wrapper">
+        <main className="w-full h-full text-white ">
           <Header />
-          {/* <Outlet /> */}
-          <div className="main-container p-4 h-full text-white">
-            <div className="h-1/2">
-              <div className="text-3xl mb-3 font-bold anim">Intro</div>
-              <div className="flex h-full mb-5">
-                <ProfileCard />
-                <Skill />
-              </div>
-            </div>
-            <div className="h-1/2">
-              <div className="text-3xl mb-3 font-bold anim" style={{ animationDelay: '0.3s' }}>
-                Project
-              </div>
-              <Project />
-            </div>
+          <Outlet />
+       
 
-            {/* <div className="videos">
+          {/* <div className="videos">
               <div className="video anim" style={{ animationDelay: "0.4s" }}>
                 <div className="video-time">8 min</div>
                 <div className="video-wrapper">
@@ -178,7 +162,7 @@ function App() {
                 </div>
               </div>
             </div> */}
-            {/* <div className="stream-area">
+          {/* <div className="stream-area">
               <div className="video-stream">
                 <video
                   id="my_video_1"
@@ -554,10 +538,9 @@ function App() {
                 </div>
               </div>
             </div> */}
-          </div>
-        </div>
+        </main>
       </section>
-    </main>
+    </section>
   );
 }
 

@@ -14,7 +14,7 @@ export default function Header() {
     setValue(data);
   };
   return (
-    <header className="header">
+    <header className="flex flex-shrink-0 items-center p-4 h-[10%] ">
       {/* <div className="search-bar">
       <input type="text" placeholder="Search" />
     </div> */}
@@ -24,6 +24,7 @@ export default function Header() {
         onSelect={onSelect}
         // onSearch={(text) => setOptions(getPanelValue(text))}
         placeholder="input here"
+        
         className="search-bar"
       />
       <div className="user-settings">

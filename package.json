@@ -2,6 +2,22 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "imports": {
+    "@i18n": "./src/i18n",
+    "@store": "./src/store/store",
+    "@utils": "./src/utils",
+    "@mocks": "./src/mocks",
+    "@pages": "./src/pages",
+    "@hooks": "./src/hooks",
+    "@actions": "./src/store/actions",
+    "@routes": "./src/routes",
+    "@service": "./src/services",
+    "@configs": "./src/configs",
+    "@firebase": "./src/firebase",
+    "@templates": "./src/templates",
+    "@constants": "./src/constants",
+    "@components": "./src/components"
+  },
   "dependencies": {
     "@alptugidin/react-circular-progress-bar": "^1.1.0",
     "@headlessui/react": "^1.7.17",
@@ -51,10 +67,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/plugin-transform-arrow-functions": "^7.18.6",
+    "@babel/preset-env": "^7.19.1",
     "@types/react-slick": "^0.23.11",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
     "sass": "^1.69.4",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "customize-cra": "^1.0.0",
+    "ts-loader": "^9.3.1"
   }
 }
