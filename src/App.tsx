@@ -11,7 +11,7 @@ function App() {
     <section className="main-app">
       <section className="container bg-main flex relative rounded-2xl overflow-hidden h-[90vh] max-h-[900px]">
         <Drawer />
-        <main className="w-full h-full text-white ">
+        <main className="w-full h-full text-white">
           <Header />
           <Outlet />
        

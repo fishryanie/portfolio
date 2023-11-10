@@ -2,10 +2,8 @@
 
 import React from 'react';
 import { Flat } from '@alptugidin/react-circular-progress-bar';
-import Slider from 'react-slick';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import ProgressBar from 'react-animated-progress-bar';
 import dataSkill from './data.json';
 import 'swiper/css';
 import useDimensions from '../../../../hook/useDimensions';

@@ -3,6 +3,7 @@
 import { createBrowserRouter, useRouteError } from 'react-router-dom';
 import App from '../App';
 import HomePage from '../pages/HomePage';
+import { page } from '@pages';
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'working',
-        element: <div>Hello world!</div>,
+        element: page['WorkExpPage'],
       },
       {
         path: 'education',
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'contacts',
-        element: <div>Hello world!</div>,
+        element: page['ContactPage'],
       },
     ],
   },
