@@ -1,26 +1,73 @@
 [
   {
-    "id": "",
+    "id": "0",
     "title": "Carta",
     "category": ["e-commerce"],
-    "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
+    "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp",
+    "listFeature": [
+      {
+        "title": "Tìm kiếm thông minh",
+        "content": "Cho phép người tim kiếm từ khoá theo xu hướng người mua hàng, kết quả tìm kiếm sắp xếp ưu tiên cho gian hàng vip và ưu tiên cho các sản phẩm được đánh giá tốt."
+      },
+      {
+        "title": "Hệ thống dành cho buyer",
+        "content": "Người mua hàng tiếp cận các chính sách và chương trình của hệ thống. Mua hàng và thanh toán linh động, người mua có thể tương tác trực tiếp với Seeler qua hệ thống đảm bảo quyền lợi của người mua trên app."
+      },
+      {
+        "title": "Hệ thống dành cho seller",
+        "content": "Cho phép Seller đăng ký tài khoản và đăng sản phẩm và các chính sách và chương trình ưu đãi, doanh thu và marketing của riêng từng gian hàng."
+      },
+      {
+        "title": "Theo dỗi đơn hàng",
+        "content": "Người mua và người bán có thể theo dõi và cập nhật trạng thái đơn hàng thường xuyên từ hệ thống."
+      },
+      {
+        "title": "Chat online",
+        "content": "Người mua và người bán có thể trao đổi với nhau qua hệ thống chát online trên từng sản phẩm."
+      },
+      {
+        "title": "Tích hợp nhiều hình thức thanh toán",
+        "content": "Hệ thống liên kết nhiều đối tác thanh toán thông qua các hệ thống ngân hàng..."
+      },
+      {
+        "title": "Tích hợp vận chuyển",
+        "content": "Liên kết nhiều đơn vị vận chuyển giúp người mua hàng chọn cho mình đơn vị vận chuyển phù hợp với chi phí vận chuyển thấp nhất"
+      },
+      {
+        "title": "Tích điểm",
+        "content": "Ứng dụng sở hữu tính năng tích điểm cho thành viên theo số tiền mua hàng chuyển đổi thành ưu đãi vào các lần mua hàng tiếp theo."
+      },
+      {
+        "title": "Ưu đãi",
+        "content": "Gửi mã ưu đãi khi có chương trình, người mua hàng sẽ được giảm giá khi đặt hàng trên hệ thống bao gồm mã Free Ship"
+      },
+      {
+        "title": "Affilicate",
+        "content": "Chức năng giới thiệu người vào hệ thống để nhận hoa hồng. Hoa hồng được rút tiền mặt hay dùng thanh toán cho đơn hàng trên app."
+      }
+    ]
   },
   {
-    "id": "",
+    "id": "1",
     "title": "Jobsbe",
     "category": ["career-services"],
+    "listFeature": [],
     "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
   },
   {
-    "id": "",
+    "id": "2",
     "title": "See",
     "category": ["ride-hailing", "food-delivery"],
+    "listFeature": [],
+
     "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
   },
   {
-    "id": "",
+    "id": "3",
     "title": "DTM",
     "category": ["event", "checking", "member-management"],
+    "listFeature": [],
+
     "picture": "https://res.cloudinary.com/dwnucvodc/image/upload/v1698640309/Portfolio/User/Ryan/Project/Carta/carta_eeippe.webp"
   }
 ]

@@ -4,6 +4,7 @@ import { createBrowserRouter, useRouteError } from 'react-router-dom';
 import App from '../App';
 import HomePage from '../pages/HomePage';
 import { page } from '@pages';
+import ProjectDetailPage from '../pages/ProjectDetailPage';
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +25,8 @@ export const router = createBrowserRouter([
         element: <div>Hello world!</div>,
       },
       {
-        path: 'project/:id',
-        element: <div>Hello world!</div>,
+        path: 'project/:projectId',
+        element: <ProjectDetailPage />,
       },
       {
         path: 'working',

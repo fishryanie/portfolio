@@ -564,33 +564,6 @@ video {
   width: 100%;
 }
 
-.chat-header {
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  background-color: #252836;
-  left: 0;
-  z-index: 1;
-  border-bottom: 1px solid var(--border-color);
-  svg {
-    width: 15px;
-    margin-right: 6px;
-    flex-shrink: 0;
-  }
-  span {
-    margin-left: auto;
-    color: var(--body-color);
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-  }
-}
-
 .chat-stream {
   flex-grow: 1;
   margin-left: 30px;
