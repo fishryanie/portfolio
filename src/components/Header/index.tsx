@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { AutoComplete } from "antd";
+/** @format */
+
+import React, { useState } from 'react';
 
 export default function Header() {
   const [options, setOptions] = useState<{ value: string }[]>([]);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [anotherOptions, setAnotherOptions] = useState<{ value: string }[]>([]);
 
   const onSelect = (data: string) => {
-    console.log("onSelect", data);
+    console.log('onSelect', data);
   };
 
   const onChange = (data: string) => {
@@ -15,18 +16,9 @@ export default function Header() {
   };
   return (
     <header className="flex flex-shrink-0 items-center p-4 h-[10%] ">
-      {/* <div className="search-bar">
-      <input type="text" placeholder="Search" />
-    </div> */}
-      <AutoComplete
-        options={options}
-        style={{ width: 200 }}
-        onSelect={onSelect}
-        // onSearch={(text) => setOptions(getPanelValue(text))}
-        placeholder="input here"
-        
-        className="search-bar"
-      />
+      <div className="search-bar">
+        <input type="text" placeholder="Search" />
+      </div>
       <div className="user-settings">
         <img
           className="user-img"
