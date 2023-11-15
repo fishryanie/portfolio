@@ -4,17 +4,11 @@
   "private": true,
   "imports": {
     "@i18n": "./src/i18n",
-    "@store": "./src/store/store",
     "@utils": "./src/utils",
     "@mocks": "./src/mocks",
     "@pages": "./src/pages",
     "@hooks": "./src/hooks",
-    "@actions": "./src/store/actions",
     "@routes": "./src/routes",
-    "@service": "./src/services",
-    "@configs": "./src/configs",
-    "@firebase": "./src/firebase",
-    "@templates": "./src/templates",
     "@constants": "./src/constants",
     "@components": "./src/components"
   },
@@ -36,6 +30,7 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.1",
     "swiper": "^11.0.3",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"

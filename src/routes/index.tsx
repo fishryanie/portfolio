@@ -1,48 +1,51 @@
 /** @format */
 
-import { createBrowserRouter, useRouteError } from 'react-router-dom';
-import App from '../App';
-import HomePage from '../pages/HomePage';
-import { page } from '@pages';
-import ProjectDetailPage from '../pages/ProjectDetailPage';
+import App from "../App";
+import { page } from "@pages";
+import { ROUTER } from "@constants";
+import { createBrowserRouter, useRouteError } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'home',
-        element: <HomePage />,
+        path: ROUTER.HOME_PAGE,
+        element: page[ROUTER.HOME_PAGE],
       },
       {
-        path: 'about',
-        element: <div>Hello world!</div>,
+        path: ROUTER.ABOUT_PAGE,
+        element: page[ROUTER.PROJECT_DETAIL_PAGE],
       },
       {
-        path: 'project',
-        element: <div>Hello world!</div>,
+        path: ROUTER.PROJECT_PAGE,
+        element: page[ROUTER.PROJECT_PAGE],
       },
       {
-        path: 'project/:projectId',
-        element: <ProjectDetailPage />,
+        path: ROUTER.PROJECT_DETAIL_PAGE,
+        element: page[ROUTER.PROJECT_DETAIL_PAGE],
       },
       {
-        path: 'working',
-        element: page['WorkExpPage'],
+        path: ROUTER.WORK_EXP_PAGE,
+        element: page[ROUTER.WORK_EXP_PAGE],
       },
       {
-        path: 'education',
-        element: <div>Hello world!</div>,
+        path: ROUTER.EDUCATION_PAGE,
+        element: page[ROUTER.EDUCATION_PAGE],
       },
       {
-        path: 'certificate',
-        element: <div>Hello world!</div>,
+        path: ROUTER.SKILL_PAGE,
+        element: page[ROUTER.SKILL_PAGE],
       },
       {
-        path: 'contacts',
-        element: page['ContactPage'],
+        path: ROUTER.CERTIFICATE_PAGE,
+        element: page[ROUTER.CERTIFICATE_PAGE],
+      },
+      {
+        path: ROUTER.CONTACT_PAGE,
+        element: page[ROUTER.CONTACT_PAGE],
       },
     ],
   },
@@ -50,7 +53,6 @@ export const router = createBrowserRouter([
 
 function ErrorPage() {
   const error: any = useRouteError();
-  console.error(error);
 
   return (
     <div id="error-page">

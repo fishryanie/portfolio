@@ -1,16 +1,12 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
-import useDimensions from '../../hook/useDimensions';
 import { Link, useLocation } from 'react-router-dom';
-import { listMenu } from './ListMenu';
-import './style.scss';
+import listMenu  from '@constants/dataMenu';
 import Logo from '../Logo';
+import './style.scss';
 
 export default function Drawer() {
   const location = useLocation();
-  const [sidebar, setSidebar] = useState('');
-  const { width, height } = useDimensions();
 
   const isActive = (path: string) => {
     return location.pathname === '/' + path ? 'is-active' : '';
@@ -31,9 +27,7 @@ export default function Drawer() {
           <div className="flex flex-col side-menu">
             {menu.childGroup.map((childMenu, idxChildMenu) => (
               <Link
-                className={` hover:font-semibold hover:text-white flex items-center mt-7 sidebar-link discover animate__animated animate__fadeInUp ${isActive(
-                  childMenu.path
-                )}`}
+                className={` hover:font-semibold hover:text-white flex items-center mt-7 sidebar-link discover animate__animated animate__fadeInUp ${isActive(childMenu.path)}`}
                 style={{ animationDelay: `0.${idxChildMenu}s` }}
                 key={idxChildMenu}
                 to={childMenu.path}

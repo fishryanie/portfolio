@@ -4,10 +4,9 @@ import React from 'react';
 import { Flat } from '@alptugidin/react-circular-progress-bar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import dataSkill from './data.json';
-import 'swiper/css';
-import useDimensions from '../../../../hook/useDimensions';
-import { RESPONSIVE } from '../../../../constants';
+import { RESPONSIVE } from '@constants';
+import useDimensions from '@hooks/useDimensions';
+import dataSkill from '@constants/dataSkill.json';
 
 const Skill: React.FC = () => {
   const { width } = useDimensions();

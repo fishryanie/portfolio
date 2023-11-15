@@ -1,39 +1,46 @@
 /** @format */
 
-export const listMenu = [
+import { ROUTER } from '@constants';
+
+const Menu = [
   {
     group: 'MENU',
     childGroup: [
-      { title: 'Home', path: 'home', icon: 'bxs-home' },
+      { title: 'Home', path: ROUTER.HOME_PAGE, icon: 'bxs-home' },
       {
         title: 'About',
-        path: 'about',
         icon: 'bxs-id-card',
+        path: ROUTER.ABOUT_PAGE,
       },
       {
         title: 'Project',
-        path: 'project',
         icon: 'bx-code-block',
+        path: ROUTER.ABOUT_PAGE,
       },
       {
         title: 'Working',
-        path: 'working',
         icon: 'bxs-briefcase',
+        path: ROUTER.WORK_EXP_PAGE,
       },
       {
         title: 'Education',
-        path: 'education',
         icon: 'bxs-graduation',
+        path: ROUTER.EDUCATION_PAGE,
+      },
+      {
+        title: 'Skill',
+        icon: 'bxs-extension',
+        path: ROUTER.SKILL_PAGE,
       },
       {
         title: 'Certificate',
-        path: 'certificate',
         icon: 'bxs-medal',
+        path: ROUTER.CERTIFICATE_PAGE,
       },
       {
-        title: 'Contacts',
-        path: 'contacts',
+        title: 'Contact',
         icon: 'bxs-contact',
+        path: ROUTER.CONTACT_PAGE,
       },
     ],
   },
@@ -53,3 +60,5 @@ export const listMenu = [
     ],
   },
 ];
+
+export default Menu;
