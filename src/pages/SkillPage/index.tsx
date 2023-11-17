@@ -8,7 +8,6 @@ import { Autoplay } from 'swiper/modules';
 import useDimensions from '@hooks/useDimensions';
 import dataSkill from '@constants/dataSkill.json';
 import styled from 'styled-components';
-import Skill from '../HomePage/components/Skill';
 
 type TypeSkill = { title: string; value: number; color: string };
 

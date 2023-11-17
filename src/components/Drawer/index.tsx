@@ -1,7 +1,7 @@
 /** @format */
 
 import { Link, useLocation } from 'react-router-dom';
-import listMenu  from '@constants/dataMenu';
+import listMenu from '@constants/dataMenu';
 import Logo from '../Logo';
 import './style.scss';
 
@@ -17,10 +17,7 @@ export default function Drawer() {
       className={`min-[280px]:w-0 min-[280px]:p-0 lg:p-8 lg:w-24 xl:w-56 md:border-r xl:border-0 lg:border-solid border-color  flex flex-col flex-shrink-0 overflow-y-auto overflow-x-hidden h-full duration-300`}
     >
       <Logo />
-      {/* <div className="logo-expand relative mb-6">
-        <h2>Portfolio</h2>
-        <h2>Portfolio</h2>
-      </div> */}
+      <div className="logo-expand mb-6">Portfolio</div>
       {listMenu.map((menu, index) => (
         <div className={`min-[280px]:w-0 side-wrapper lg:w-8 xl:w-36 py-9 duration-300 ${index !== 0 && 'border-t border-color'}`} key={index}>
           <div className="min-[280px]:hidden md:block text-xs">{menu.group}</div>

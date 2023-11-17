@@ -15,7 +15,7 @@ const Menu = [
       {
         title: 'Project',
         icon: 'bx-code-block',
-        path: ROUTER.ABOUT_PAGE,
+        path: ROUTER.PROJECT_PAGE,
       },
       {
         title: 'Working',
