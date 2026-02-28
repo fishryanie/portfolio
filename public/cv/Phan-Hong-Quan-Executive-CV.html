@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phan Hong Quan - Executive CV</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 10mm 3.5mm;
+      }
+
+      :root {
+        --ink: #3a3028;
+        --muted: #6b5b4f;
+        --soft: #d8cab7;
+        --panel: #f2f0ec;
+        --panel-2: #f7f6f3;
+        --accent: #8b5f3f;
+        --accent-2: #9a6a47;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      .page {
+        border: none;
+        margin: 0;
+        background: #fff;
+      }
+
+      .page + .page {
+        break-before: page;
+        page-break-before: always;
+      }
+
+      .hero {
+        padding: 10px 6px 14px;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .name {
+        margin: 0;
+        font-size: 20px;
+        line-height: 0.95;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        color: #5d5149;
+      }
+
+      .headline {
+        margin: 9px 0 0;
+        font-size: 10.9px;
+        line-height: 1.45;
+        color: var(--muted);
+        font-weight: 600;
+        max-width: 760px;
+      }
+
+      .avatar-shell {
+        width: 86px;
+        height: 86px;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid var(--soft);
+        background: #fff;
+        flex: 0 0 86px;
+      }
+
+      .avatar-shell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .meta-row {
+        margin-top: 9px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 9.1px;
+        color: #8b7d72;
+      }
+
+      .availability {
+        margin-top: 8px;
+        font-size: 9.2px;
+        color: #96867a;
+      }
+
+      .main-grid {
+        display: grid;
+        grid-template-columns: 33% 67%;
+        gap: 0;
+        margin-top: 2px;
+      }
+
+      .left-col {
+        padding: 7px 6px 8px;
+        border-right: none;
+      }
+
+      .right-col {
+        padding: 7px 7px 8px 30px;
+      }
+
+      .section {
+        margin-bottom: 10px;
+      }
+
+      .title {
+        margin: 0 0 6px;
+        font-size: 11.1px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+      }
+
+      .summary {
+        margin: 0;
+        font-size: 10.6px;
+        line-height: 1.48;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .metric {
+        border: 1px solid var(--soft);
+        border-radius: 10px;
+        padding: 7px 7px;
+      }
+
+      .metric-value {
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 0.95;
+      }
+
+      .metric-label {
+        margin-top: 3px;
+        font-size: 9px;
+        color: var(--muted);
+        line-height: 1.3;
+      }
+
+      .stack-group {
+        margin-bottom: 5px;
+      }
+
+      .stack-label {
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .stack-text {
+        margin-top: 1px;
+        font-size: 9.7px;
+        line-height: 1.42;
+        color: var(--muted);
+      }
+
+      .tag-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 5px;
+      }
+
+      .tag {
+        border: 1px solid #ccb8a0;
+        border-radius: 999px;
+        padding: 2px 7px;
+        font-size: 8.8px;
+        color: var(--ink);
+        background: #fffaf3;
+      }
+
+      .edu-item {
+        margin-bottom: 5px;
+      }
+
+      .edu-title {
+        margin: 0;
+        font-size: 10.2px;
+        font-weight: 700;
+      }
+
+      .edu-sub {
+        margin-top: 1px;
+        font-size: 8.9px;
+        color: var(--muted);
+      }
+
+      .exp-title {
+        margin: 0 0 7px;
+        font-size: 11.1px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+      }
+
+      .exp-timeline {
+        position: relative;
+        margin-left: 2px;
+        padding-left: 18px;
+        border-left: 2px solid #b08a66;
+      }
+
+      .exp-card {
+        position: relative;
+        border: none;
+        border-radius: 0;
+        padding: 0 0 10px 10px;
+        margin-bottom: 10px;
+        background: transparent;
+      }
+
+      .exp-card,
+      .exp-card * {
+        font-family: inherit;
+      }
+
+      .exp-dot {
+        position: absolute;
+        left: -24px;
+        top: 1px;
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        border: 2px solid #9a6a47;
+        background: #fff;
+        z-index: 2;
+      }
+
+      .exp-card:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .exp-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 7px;
+      }
+
+      .exp-company {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .exp-time {
+        font-size: 10.2px;
+        font-weight: 700;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      .exp-role {
+        margin-top: 1px;
+        font-size: 10.6px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .exp-list {
+        margin: 7px 0 0;
+        padding-left: 14px;
+      }
+
+      .exp-list li {
+        margin-bottom: 2px;
+        font-size: 10.9px;
+        line-height: 1.4;
+      }
+
+      .project-page {
+        padding: 10px 5px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .project-card {
+        border: 1px solid var(--soft);
+        border-radius: 10px;
+        padding: 9px 10px;
+        background: #fff;
+      }
+
+      .project-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .project-name {
+        margin: 0;
+        font-size: 12.8px;
+        font-weight: 800;
+      }
+
+      .project-role {
+        margin-top: 1px;
+        font-size: 10.4px;
+        color: var(--muted);
+      }
+
+      .project-meta {
+        font-size: 10px;
+        color: var(--accent);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .project-scope {
+        margin-top: 5px;
+        font-size: 10.8px;
+        line-height: 1.42;
+        color: var(--ink);
+      }
+
+      .mini-list {
+        margin: 5px 0 0;
+        padding-left: 14px;
+      }
+
+      .mini-list li {
+        margin-bottom: 1px;
+        font-size: 10.5px;
+        line-height: 1.35;
+        color: var(--ink);
+      }
+
+      .inline-tech {
+        margin-top: 4px;
+        font-size: 10.2px;
+        color: var(--muted);
+      }
+
+      .inline-link {
+        margin-top: 3px;
+        font-size: 9.8px;
+        color: var(--accent-2);
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <h1 class="name">PHAN HONG QUAN</h1>
+            <p class="headline">
+              Frontend Engineer focused on React Native and Next.js product delivery, with hands-on experience across EV Charging, Mobility, E-commerce, and Operations Platforms.
+            </p>
+          </div>
+          <div class="avatar-shell" aria-label="Profile photo">
+            <img src="./avatar.jpg" alt="Phan Hong Quan avatar" />
+          </div>
+        </div>
+        <div class="meta-row">
+          <span>Ho Chi Minh City, Vietnam</span>
+          <span>+84 979 955 925</span>
+          <span>qphanquan1998@gmail.com</span>
+          <span>Portfolio: cv-dev-portfolio.vercel.app</span>
+        </div>
+        <div class="availability">Open to Frontend Engineer / Mobile Engineer roles</div>
+      </header>
+
+      <section class="main-grid">
+        <aside class="left-col">
+          <section class="section">
+            <h2 class="title">Executive Summary</h2>
+            <p class="summary">
+              4+ years building and scaling production frontend systems. Strong in implementing complex user flows,
+              integrating third-party services, and maintaining release quality in active product environments.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2 class="title">Career Snapshot</h2>
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="metric-value">11+</div>
+                <div class="metric-label">Delivered products (mobile + web)</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">8</div>
+                <div class="metric-label">Apps delivered in IMS product suite</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Main company/freelance groups</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">4+</div>
+                <div class="metric-label">Years of frontend product experience</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">Core Stack</h2>
+            <div class="stack-group">
+              <div class="stack-label">Mobile</div>
+              <div class="stack-text">React Native CLI, TypeScript, React Navigation, Redux Toolkit/Saga, React Query, Firebase, Notifee, MQTT, AppCenter CodePush.</div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label">Web</div>
+              <div class="stack-text">Next.js (App Router), React, TypeScript, Ant Design, Chart.js, Mapbox, reusable component architecture.</div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label">Engineering</div>
+              <div class="stack-text">REST API integration, performance optimization, production debugging, release support, feature standardization.</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">ATS Keywords</h2>
+            <div class="tag-wrap">
+              <span class="tag">React Native</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span>
+              <span class="tag">JavaScript</span><span class="tag">Redux Toolkit</span><span class="tag">Redux Saga</span><span class="tag">React Query</span>
+              <span class="tag">Firebase</span><span class="tag">MQTT</span><span class="tag">REST API</span><span class="tag">AppCenter CodePush</span>
+              <span class="tag">Ant Design</span><span class="tag">Chart.js</span><span class="tag">Mapbox</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2 class="title">Education & Training</h2>
+            <div class="edu-item">
+              <p class="edu-title">FPT Polytechnic</p>
+              <p class="edu-sub">Mobile Java Android · Mar 2020 - Jun 2022</p>
+            </div>
+            <div class="edu-item">
+              <p class="edu-title">CyberSoft Academy</p>
+              <p class="edu-sub">Frontend Website · Oct 2020 - Jun 2021</p>
+            </div>
+            <div class="edu-item">
+              <p class="edu-title">CodeStar Academy</p>
+              <p class="edu-sub">DevOps on AWS · Aug 2022 - Oct 2022</p>
+            </div>
+          </section>
+        </aside>
+
+        <section class="right-col">
+          <h2 class="exp-title">Professional Experience</h2>
+
+          <div class="exp-timeline">
+            <article class="exp-card">
+              <span class="exp-dot" aria-hidden="true"></span>
+              <div class="exp-head">
+                <div>
+                  <p class="exp-company">Eboost (EVMobility)</p>
+                  <div class="exp-role">Frontend Engineer</div>
+                </div>
+                <div class="exp-time">Aug 2024 - Present</div>
+              </div>
+              <ul class="exp-list">
+                <li>Owned frontend delivery for EBOOST Charging Network App (mobile) and EBOOST CMS/Admin Portal (web).</li>
+                <li>Built EV charging app flows: map discovery, QR scan, outlet details, charging sessions, wallet top-up, transaction history.</li>
+                <li>Developed CMS modules for operations, marketing, partnerships, and technical monitoring workflows.</li>
+                <li>Improved release reliability through production issue fixes and rollout standardization.</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <span class="exp-dot" aria-hidden="true"></span>
+              <div class="exp-head">
+                <div>
+                  <p class="exp-company">Freelance - Kinis.ai</p>
+                  <div class="exp-role">Frontend Developer</div>
+                </div>
+                <div class="exp-time">Oct 2024 - Feb 2025</div>
+              </div>
+              <ul class="exp-list">
+                <li>Delivered growth-focused web platform: Home, About, Technology, Partnership, Investors pages.</li>
+                <li>Implemented lead capture/processing workflows for investor and partnership funnels.</li>
+                <li>Developed admin contact management dashboard and API-connected support interactions.</li>
+                <li>Contributed across broader Kinis ecosystem (web, mobile, backend, dashboard).</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <span class="exp-dot" aria-hidden="true"></span>
+              <div class="exp-head">
+                <div>
+                  <p class="exp-company">IMS Solution</p>
+                  <div class="exp-role">Mobile App Developer</div>
+                </div>
+                <div class="exp-time">Mar 2022 - Aug 2024</div>
+              </div>
+              <ul class="exp-list">
+                <li>Developed and maintained 5 production apps: SKY, RPM, Carta, e-Member, Hong Phuc.</li>
+                <li>Built key modules across booking, order, wallet, payment, voucher, and support workflows.</li>
+                <li>Integrated Firebase, maps/geolocation, deep links, notifications, and payment-related features.</li>
+                <li>Supported full release lifecycle: features, bug fixing, optimization, and OTA updates.</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <span class="exp-dot" aria-hidden="true"></span>
+              <div class="exp-head">
+                <div>
+                  <p class="exp-company">Gcalls</p>
+                  <div class="exp-role">Full-Stack Developer (Intern)</div>
+                </div>
+                <div class="exp-time">Jun 2021 - Oct 2021</div>
+              </div>
+              <ul class="exp-list">
+                <li>Built and tested backend/frontend services (React PWA, NodeJS, MongoDB).</li>
+                <li>Managed MongoDB data flow and API integration for deployment support.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <main class="page">
+      <section class="project-page">
+        <h2 class="title" style="margin-bottom: 10px;">Project Details by Company (Recruiter Review)</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">EBOOST Charging Network App</p>
+                <div class="project-role">Role: Frontend Engineer · Company: Eboost</div>
+              </div>
+              <div class="project-meta">2024 - Present</div>
+            </div>
+            <div class="project-scope">Consumer EV charging app for station discovery, QR charging control, wallet operations, and transaction history.</div>
+            <ul class="mini-list">
+              <li>Implemented QR scan -> connector selection -> charging session -> billing workflow.</li>
+              <li>Built top-up, payment history, and realtime charging status interactions.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, React Query, Firebase, MQTT, Notifee.</div>
+            <div class="inline-link">https://onelink.to/2uejj5</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">EBOOST CMS / Admin Portal</p>
+                <div class="project-role">Role: Frontend Engineer · Company: Eboost</div>
+              </div>
+              <div class="project-meta">2024 - Present</div>
+            </div>
+            <div class="project-scope">Internal CMS platform for operations, marketing, partnerships, asset management, and technical monitoring.</div>
+            <ul class="mini-list">
+              <li>Built modules for accounts, transactions, charging assets, promotions, and dashboard analytics.</li>
+              <li>Developed reusable component patterns to accelerate feature delivery cycles.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> Next.js, TypeScript, React Query, Ant Design, Chart.js, Mapbox.</div>
+            <div class="inline-link">https://cms.eboost.vn</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">Kinis.ai Platform (Freelance)</p>
+                <div class="project-role">Role: Frontend Developer · Client: Kinis.ai</div>
+              </div>
+              <div class="project-meta">Oct 2024 - Feb 2025</div>
+            </div>
+            <div class="project-scope">Growth-focused website and lead pipeline platform for partnership and investor conversion.</div>
+            <ul class="mini-list">
+              <li>Delivered public pages (Home/About/Technology/Partnership/Investors) with conversion-oriented UX.</li>
+              <li>Implemented lead capture/categorization and admin processing workflow.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> Next.js, TypeScript, TailwindCSS, Ant Design, React Query.</div>
+            <div class="inline-link">https://kinis.ai</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">SKY Super App</p>
+                <div class="project-role">Role: Mobile App Developer · Company: IMS Solution</div>
+              </div>
+              <div class="project-meta">2022 - 2024</div>
+            </div>
+            <div class="project-scope">Multi-service consumer app covering ride booking, delivery, food, shopping, wallet, and membership.</div>
+            <ul class="mini-list">
+              <li>Built booking, delivery, profile, and wallet flows in core user journeys.</li>
+              <li>Implemented top-up/payment history plus push-notification and deep-link flows.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, Redux Toolkit, Firebase, Notifee.</div>
+            <div class="inline-link">https://skycorp.vn</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">Carta</p>
+                <div class="project-role">Role: Mobile App Developer · Company: IMS Solution</div>
+              </div>
+              <div class="project-meta">2022 - 2024</div>
+            </div>
+            <div class="project-scope">Marketplace mobile app with shopping, promotions, order lifecycle, and multilingual user support.</div>
+            <ul class="mini-list">
+              <li>Built commerce flow: category, product detail, cart, payment, and order tracking.</li>
+              <li>Implemented flash-sale vouchers and support-center experiences for end users.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, JavaScript/TypeScript, Redux, Firebase, i18next.</div>
+            <div class="inline-link">https://apps.apple.com/app/id1661596013</div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

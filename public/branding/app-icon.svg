@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio App Icon</title>
+  <desc id="desc">Rounded square icon with a stylized Q mark in portfolio brand colors.</desc>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#132531" />
+      <stop offset="1" stop-color="#2b4f63" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(384 120) rotate(132) scale(220)">
+      <stop offset="0" stop-color="#f8bf4c" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#f8bf4c" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ring" x1="146" y1="146" x2="366" y2="366" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff9ef" />
+      <stop offset="1" stop-color="#dce8ee" />
+    </linearGradient>
+  </defs>
+
+  <rect x="28" y="28" width="456" height="456" rx="116" fill="url(#bg)" />
+  <rect x="28" y="28" width="456" height="456" rx="116" fill="url(#glow)" />
+
+  <circle cx="256" cy="256" r="124" fill="none" stroke="url(#ring)" stroke-width="50" />
+  <path d="M318 318L386 386" fill="none" stroke="#eb5b2a" stroke-linecap="round" stroke-width="44" />
+  <circle cx="256" cy="256" r="22" fill="#008c7a" />
+</svg>

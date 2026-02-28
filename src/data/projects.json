@@ -1,0 +1,223 @@
+[
+  {
+    "id": "eboost-mobile-app",
+    "title": "EBOOST Charging Network App",
+    "customer": "Eboost (EVMobility)",
+    "technology": ["React Native CLI", "TypeScript", "React Query", "Firebase", "MQTT", "Notifee"],
+    "platform": ["iOS", "Android"],
+    "position": "Frontend Engineer",
+    "type": "EV Charging Mobile App",
+    "member": 2,
+    "linkDownload": [{ "label": "App Download", "link": "https://onelink.to/2uejj5" }],
+    "description": "Consumer mobile app for EV charging operations: station discovery, charger monitoring, charging session control, wallet top-up, and transaction history.",
+    "responsibility": [
+      "Built key user journeys: station map, QR scan, outlet detail, charging, and transaction tracking.",
+      "Implemented top-up and payment flows with card and e-wallet related screens.",
+      "Integrated notifications and real-time status updates for charging events.",
+      "Maintained release stability by fixing production issues and optimizing app performance."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Charging flow", "description": "QR scan -> connector selection -> charging control -> billing." },
+          { "title": "Wallet flows", "description": "Top-up, payment history, and transaction breakdown." },
+          { "title": "User account", "description": "Referral, profile, vehicle setup, and account-level settings." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eboost-cms",
+    "title": "EBOOST CMS / Admin Portal",
+    "customer": "Eboost (EVMobility)",
+    "technology": ["Next.js", "TypeScript", "React Query", "Ant Design", "Chart.js", "Mapbox"],
+    "platform": ["Web"],
+    "position": "Frontend Engineer",
+    "type": "Admin & Operations CMS",
+    "member": 1,
+    "linkDownload": "https://cms.eboost.vn",
+    "description": "Internal CMS platform used by operations and business teams to manage charging ecosystem data, marketing campaigns, partnerships, and technical monitoring.",
+    "responsibility": [
+      "Developed admin modules for operations, marketing, partnerships, and technical teams.",
+      "Built dashboards and data tables for transactions, chargers, tariffs, and realtime statuses.",
+      "Implemented scalable UI patterns with reusable Ant Design components.",
+      "Collaborated with backend and product teams to ship internal workflows quickly."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Admin modules", "description": "Accounts, locations, payments, transactions, and reports." },
+          { "title": "Marketing tools", "description": "Promotions, bonus top-up, notifications, and subscriptions." },
+          { "title": "Technical monitoring", "description": "Chargers, connectors, outlet status logs, and simulator tooling." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sky",
+    "title": "S-Go (SEE) Super App",
+    "customer": "IMS Solution",
+    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
+    "platform": ["iOS", "Android"],
+    "position": "Mobile App Developer",
+    "type": "All-in-One Mobility & Commerce App",
+    "member": 3,
+    "linkDownload": "https://skycorp.vn/",
+    "description": "S-Go is an all-in-one ecosystem app by IMS, combining ride-hailing, delivery, food ordering, and online shopping with a secure and user-friendly experience.",
+    "responsibility": [
+      "Built core user journeys for booking rides, placing delivery orders, food ordering, and shopping checkout.",
+      "Implemented transparent pricing, live order/trip tracking, and multi-method payment flows.",
+      "Developed loyalty, promotions, and user retention modules integrated with notifications.",
+      "Supported production releases and optimized app stability across iOS and Android."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Smart ride-hailing", "description": "Quick booking for bike, taxi, and car with transparent fare calculation." },
+          { "title": "Delivery + Food + Shopping", "description": "Unified flows for parcel delivery, food ordering, and e-commerce purchases." },
+          { "title": "Scalable ecosystem", "description": "Architecture prepared for AI recommendations and route optimization expansion." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rpm",
+    "title": "RPM Vietnam",
+    "customer": "IMS Solution",
+    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "AppCenter CodePush"],
+    "platform": ["iOS", "Android", "Web"],
+    "position": "Mobile App Developer",
+    "type": "E-commerce App",
+    "member": 1,
+    "linkDownload": "https://rpmkixx.page.link/download",
+    "description": "Commerce app for product discovery, ordering, vouchers, invoices, support center and loyalty-related experiences.",
+    "responsibility": [
+      "Owned core shopping flows: product listing/detail, cart, order confirm, and order history.",
+      "Implemented account utilities: user info, points, vouchers, notifications, and settings.",
+      "Integrated push notification and authentication related services.",
+      "Handled release pipeline for Android/iOS builds and CodePush updates."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Commerce basics", "description": "Catalogs, product details, carts, checkout and order history." },
+          { "title": "Post-purchase", "description": "Invoice list, debt list, ratings and support center." },
+          { "title": "Engagement", "description": "Vouchers, points and notifications." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carta",
+    "title": "Carta",
+    "customer": "IMS Solution",
+    "technology": ["React Native CLI", "JavaScript/TypeScript", "Redux", "Firebase", "i18next"],
+    "platform": ["iOS", "Android"],
+    "position": "Mobile App Developer",
+    "type": "Marketplace App",
+    "member": 3,
+    "description": "Marketplace project with shopping, flash sale, order lifecycle, support center and multilingual user flows.",
+    "responsibility": [
+      "Built customer-facing commerce screens: category, products, cart, payment, and order detail.",
+      "Implemented voucher and promotion flows including flash-sale-related screens.",
+      "Worked on support center/ticket flows and order search/management experiences.",
+      "Contributed to localization-ready UI and authentication/OTP flows."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Shopping flow", "description": "Search, cart, checkout, payment methods, and order success." },
+          { "title": "Promotions", "description": "Flash sale, vouchers, shock-deal and discount experiences." },
+          { "title": "Customer support", "description": "Support request tracking and in-app communication screens." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e-member",
+    "title": "Check-in Event App (e-Member)",
+    "customer": "IMS Solution",
+    "technology": ["React Native CLI", "JavaScript/TypeScript", "Redux", "Firebase", "React Hook Form"],
+    "platform": ["iOS", "Android"],
+    "position": "Mobile App Developer",
+    "type": "Event Check-in & E-ticket Platform",
+    "member": 2,
+    "description": "Professional event check-in application with QR code validation, guest list management, e-ticket handling, and real-time attendance reporting.",
+    "responsibility": [
+      "Built event registration, invitation, and attendee management flows for organizers and participants.",
+      "Implemented QR check-in validation, duplicate-scan prevention, and live check-in status updates.",
+      "Developed e-ticket, guest segmentation, and notification workflows to streamline on-site operations.",
+      "Maintained release stability and handled production fixes during real event rollouts."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Fast QR check-in", "description": "Attendees can complete entry in seconds with unique QR tickets." },
+          { "title": "Realtime operations", "description": "Live dashboard for check-in counts, status tracking, and event reports." },
+          { "title": "Security & control", "description": "Role-based access, secure attendee data handling, and audit-ready workflows." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hong-phuc",
+    "title": "Clear Fast (Hong Phuc)",
+    "customer": "IMS Solution",
+    "technology": ["React Native CLI", "JavaScript/TypeScript", "Firebase", "Agora", "Redux"],
+    "platform": ["iOS", "Android"],
+    "position": "Mobile App Developer",
+    "type": "Housekeeping & Care Service Booking App",
+    "member": 3,
+    "description": "Clear Fast is a service-booking app for housekeeping, elderly care, and patient care, with flexible booking options and transparent pricing.",
+    "responsibility": [
+      "Implemented booking flows for hourly, daily, and long-term service packages.",
+      "Built staff profile and favorite-worker screens with clear service pricing.",
+      "Developed payment, promotion, and order-tracking related user flows.",
+      "Improved support/account experiences and handled production bug fixes."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Flexible booking", "description": "Book services by hour, day, or long-term plans based on household needs." },
+          { "title": "Trusted workforce", "description": "Profiles for trained staff with transparent service and assignment details." },
+          { "title": "Transparent & secure", "description": "Clear pricing, secure payment flows, and responsive customer support." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kinis",
+    "title": "Kinis.ai Web Platform (Freelance)",
+    "customer": "Kinis",
+    "technology": ["Next.js", "TypeScript", "TailwindCSS", "Ant Design", "Mongoose", "JWT", "React Query"],
+    "platform": ["Web"],
+    "position": "Frontend Developer (Freelance)",
+    "type": "Landing + Investor/Partnership + Admin",
+    "member": 2,
+    "linkDownload": "https://kinis.ai",
+    "description": "Freelance web project for Kinis.ai, including public landing pages, investor/partnership conversion flows, and admin tools for managing inbound contacts.",
+    "responsibility": [
+      "Built and maintained key landing pages: Home, About, Technology, Partnership, and Investors.",
+      "Implemented contact form flows and data handling for investor/partnership/subscriber leads.",
+      "Developed admin login and contact management dashboard for internal follow-up.",
+      "Integrated chatbot-like interaction flow via backend API endpoint and optimized responsive UI behavior."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Growth pages", "description": "Marketing and storytelling pages tailored for partnership and fundraising." },
+          { "title": "Lead pipeline", "description": "Contact capture, contact types, and admin processing workflow." },
+          { "title": "Support interaction", "description": "Web chat flow connected to backend API for visitor assistance." }
+        ]
+      }
+    ]
+  }
+]
