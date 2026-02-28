@@ -57,7 +57,7 @@
   },
   {
     "id": "sky",
-    "title": "S-Go (SEE) Super App",
+    "title": "SKY Super App (S-Go/SEE)",
     "customer": "IMS Solution",
     "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
     "platform": ["iOS", "Android"],
