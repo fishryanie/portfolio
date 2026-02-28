@@ -62,23 +62,24 @@
     "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
     "platform": ["iOS", "Android"],
     "position": "Mobile App Developer",
-    "type": "All-in-One Mobility & Commerce App",
+    "type": "Ứng dụng xe công nghệ / Food / Mua sắm / Giao hàng",
     "member": 3,
     "linkDownload": "https://skycorp.vn/",
-    "description": "S-Go is an all-in-one ecosystem app by IMS, combining ride-hailing, delivery, food ordering, and online shopping with a secure and user-friendly experience.",
+    "description": "Sky là ứng dụng đa dịch vụ do IMS phát triển, tích hợp đặt xe công nghệ, giao đồ ăn, mua sắm trực tuyến và giao hàng trong một nền tảng duy nhất. Ứng dụng tập trung vào trải nghiệm thân thiện, giá minh bạch, theo dõi realtime và vận hành ổn định trên iOS/Android.",
     "responsibility": [
-      "Built core user journeys for booking rides, placing delivery orders, food ordering, and shopping checkout.",
-      "Implemented transparent pricing, live order/trip tracking, and multi-method payment flows.",
-      "Developed loyalty, promotions, and user retention modules integrated with notifications.",
-      "Supported production releases and optimized app stability across iOS and Android."
+      "Phát triển các luồng chính cho hệ sinh thái Sky gồm đặt xe, food, mua sắm và giao hàng.",
+      "Xây dựng quy trình đặt dịch vụ end-to-end: tạo đơn, theo dõi trạng thái realtime, thanh toán và lịch sử giao dịch.",
+      "Tích hợp các tính năng hỗ trợ vận hành như định vị, kết nối tài xế gần nhất, thông báo đẩy và xác minh người dùng.",
+      "Tối ưu UI/UX, sửa lỗi production và đảm bảo chất lượng phát hành trên cả iOS và Android."
     ],
     "features": [
       {
         "featureGroup": "Highlights",
         "featureList": [
-          { "title": "Smart ride-hailing", "description": "Quick booking for bike, taxi, and car with transparent fare calculation." },
-          { "title": "Delivery + Food + Shopping", "description": "Unified flows for parcel delivery, food ordering, and e-commerce purchases." },
-          { "title": "Scalable ecosystem", "description": "Architecture prepared for AI recommendations and route optimization expansion." }
+          { "title": "Sky Ride – Xe công nghệ", "description": "Đặt xe nhanh chóng, an toàn, giá cả minh bạch. Hệ thống định vị thông minh, kết nối tài xế gần nhất. Hỗ trợ xe máy, ô tô và giao hàng nhanh." },
+          { "title": "Sky Food – Ẩm thực tiện lợi", "description": "Đặt đồ ăn online từ nhiều quán ăn, nhà hàng đối tác. Giao nhanh, đảm bảo chất lượng, tích hợp thanh toán không tiền mặt và ưu đãi." },
+          { "title": "Sky Mall – Mua sắm trực tuyến", "description": "Trải nghiệm thương mại điện tử trong hệ sinh thái Sky với đa dạng ngành hàng như thời trang, gia dụng, công nghệ. Giao hàng tận nơi, tiện lợi và uy tín." },
+          { "title": "Sky Delivery – Giao hàng", "description": "Giao hàng siêu tốc nội thành và liên tỉnh với chi phí hợp lý, theo dõi trạng thái 24/7, hỗ trợ shop online, nhà hàng và doanh nghiệp." }
         ]
       }
     ]
