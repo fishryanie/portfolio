@@ -293,7 +293,7 @@ const projectMeta: Record<string, ProjectMeta> = {
       en: "Landing + investor/partnership + admin + ecosystem expansion",
     },
   },
-  sky: {
+  "s-go": {
     companyId: "ims",
     period: sameLocale("2022 - 2024"),
     image: "/images/see/see.png",
@@ -310,18 +310,30 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/see/1-lich-su.png",
       "/images/see/diem-tich-luy.png",
     ],
+    source: "Company/IMS/see",
+    scope: {
+      vi: "Hệ sinh thái all-in-one: gọi xe, giao hàng, ẩm thực và mua sắm",
+      en: "All-in-one ecosystem: ride, delivery, food, and shopping",
+    },
+    extraLinks: [{ label: "Website", link: "https://skycorp.vn/" }],
+  },
+  sky: {
+    companyId: "ims",
+    period: sameLocale("2022 - 2024"),
+    image: "/images/sky/sky.png",
+    galleryImages: [
+      "/images/sky/chon-dich-vu.png",
+      "/images/sky/hoat-dong-hien-tai-chuyen-di.png",
+      "/images/sky/sky-splash-screen.png",
+      "/images/sky/Chọn dịch vụ.png",
+      "/images/sky/Hoạt động hiện tại chuyến đi.png",
+    ],
     source: "Company/IMS/sky",
     scope: {
-      vi: "Hệ sinh thái gọi xe, giao hàng, ẩm thực và mua sắm all-in-one",
-      en: "All-in-one ride, delivery, food, and commerce ecosystem",
+      vi: "Ứng dụng xe công nghệ, food, mua sắm và giao hàng",
+      en: "Ride-hailing, food, shopping, and delivery super app",
     },
-    extraLinks: [
-      {
-        label: "Google Play",
-        link: "https://play.google.com/store/apps/details?id=com.ims.sky",
-      },
-      { label: "App Store", link: "https://apps.apple.com/app/id6475276823" },
-    ],
+    extraLinks: [{ label: "Website", link: "https://skycorp.vn/" }],
   },
   rpm: {
     companyId: "ims",

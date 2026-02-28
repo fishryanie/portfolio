@@ -56,8 +56,36 @@
     ]
   },
   {
+    "id": "s-go",
+    "title": "S-Go (SEE) Super App",
+    "customer": "IMS Solution",
+    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
+    "platform": ["iOS", "Android"],
+    "position": "Mobile App Developer",
+    "type": "All-in-One Mobility & Commerce App",
+    "member": 3,
+    "linkDownload": "https://skycorp.vn/",
+    "description": "S-Go (SEE) is an all-in-one ecosystem app by IMS that combines ride-hailing, delivery, food ordering, and shopping in one unified user experience.",
+    "responsibility": [
+      "Developed core user journeys across ride booking, food ordering, shopping, and delivery workflows.",
+      "Implemented realtime map/location tracking, payment flows, and in-app notifications.",
+      "Built key commerce and service screens with production-ready UX for iOS and Android.",
+      "Supported release cycles, hotfixes, and performance optimization in production."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "All-in-one services", "description": "Unified platform for mobility, food, shopping, and logistics." },
+          { "title": "Realtime operations", "description": "Live trip/order status with map and location-based workflows." },
+          { "title": "Scale-ready foundation", "description": "Architecture prepared for service expansion and high-volume usage." }
+        ]
+      }
+    ]
+  },
+  {
     "id": "sky",
-    "title": "SKY Super App (S-Go/SEE)",
+    "title": "SKY Super App",
     "customer": "IMS Solution",
     "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
     "platform": ["iOS", "Android"],
