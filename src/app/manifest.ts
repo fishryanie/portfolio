@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Phan Hong Quan Portfolio",
     short_name: "Quan Portfolio",
     description:
-      "Portfolio cua Phan Hong Quan, Frontend Engineer React Native va Next.js, voi project gallery theo tung company.",
+      "Portfolio của Phan Hồng Quân, Frontend Engineer React Native và Next.js, với gallery dự án thực tế theo từng công ty.",
     start_url: "/",
     display: "standalone",
     orientation: "portrait",

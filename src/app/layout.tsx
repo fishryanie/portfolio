@@ -17,7 +17,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Phan Hong Quan | Frontend Engineer Portfolio",
   description:
-    "Portfolio cua Phan Hong Quan, Frontend Engineer chuyen React Native va Next.js, trinh bay du an theo cong ty kem gallery va lien he nhanh.",
+    "Portfolio của Phan Hồng Quân, Frontend Engineer chuyên React Native và Next.js, trình bày dự án theo từng công ty với gallery thực tế và thông tin liên hệ nhanh.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

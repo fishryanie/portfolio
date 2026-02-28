@@ -1,10 +1,10 @@
 {
   "Metadata": {
     "siteTitle": "Phan Hong Quan | Frontend Engineer Portfolio",
-    "siteDescription": "Portfolio cua Phan Hong Quan, Frontend Engineer chuyen React Native va Next.js, trinh bay du an theo cong ty kem gallery va lien he nhanh.",
+    "siteDescription": "Portfolio của Phan Hồng Quân, Frontend Engineer chuyên React Native và Next.js, trình bày dự án theo từng công ty với gallery thực tế và thông tin liên hệ nhanh.",
     "homeTitle": "Phan Hong Quan | Portfolio du an theo cong ty",
-    "homeDescription": "Portfolio cua Phan Hong Quan gom nhom du an theo cong ty, showcase anh thuc te, stack cong nghe va thong tin lien he cho recruiter.",
-    "manifestDescription": "Portfolio cua Phan Hong Quan, Frontend Engineer React Native va Next.js, voi project gallery theo tung company."
+    "homeDescription": "Portfolio của Phan Hồng Quân được nhóm theo công ty, showcase ảnh thực tế từng dự án, stack công nghệ và thông tin liên hệ dành cho nhà tuyển dụng.",
+    "manifestDescription": "Portfolio của Phan Hồng Quân, Frontend Engineer React Native và Next.js, với gallery dự án thực tế theo từng công ty."
   },
   "FloatingNav": {
     "mobileContact": "Lien he",
