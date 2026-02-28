@@ -1,0 +1,44 @@
+{
+  "Metadata": {
+    "siteTitle": "Phan Hong Quan | Frontend Engineer Portfolio",
+    "siteDescription": "Portfolio of Phan Hong Quan, a Frontend Engineer focused on React Native and Next.js, organized by company with real project galleries and direct contact.",
+    "homeTitle": "Phan Hong Quan | Portfolio Projects by Company",
+    "homeDescription": "Portfolio grouped by company, showcasing real project screens, technology stack, and recruiter-focused contact information.",
+    "manifestDescription": "Portfolio of Phan Hong Quan, Frontend Engineer in React Native and Next.js, with detailed project galleries by company."
+  },
+  "FloatingNav": {
+    "mobileContact": "Contact",
+    "languageLabel": "Language"
+  },
+  "Home": {
+    "navOverview": "Overview",
+    "navEboost": "Eboost",
+    "navFreelance": "Freelance",
+    "navIms": "IMS",
+    "navContact": "Contact",
+    "quickContact": "Quick Contact",
+    "heroBadge": "Detailed portfolio grouped by company and project",
+    "downloadCv": "Download CV (Executive PDF)",
+    "contactInfo": "Contact",
+    "workTimeline": "Work Timeline",
+    "companyGroupLabel": "Company Group",
+    "metaCustomer": "Customer",
+    "metaPlatform": "Platform",
+    "metaTeamSize": "Team Size",
+    "metaScope": "Scope",
+    "featureGroups": "Feature Groups",
+    "responsibilities": "Responsibilities",
+    "linksAccess": "Links & Access"
+  },
+  "ProjectLinkQrGrid": {
+    "privateDistribution": "Internal project / private distribution (NDA)."
+  },
+  "ProjectImageGallery": {
+    "view": "View",
+    "close": "Close image preview",
+    "previous": "Previous image",
+    "next": "Next image",
+    "mainImage": "Open main image of {title}",
+    "screenshot": "Open screenshot {index} of {title}"
+  }
+}

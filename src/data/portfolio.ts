@@ -1,4 +1,7 @@
+import type { AppLocale } from "@/i18n/routing";
 import sourceProjects from "./projects.json";
+
+type LocalizedText = Record<AppLocale, string>;
 
 export type ProjectLink = {
   label: string;
@@ -51,13 +54,13 @@ export type PortfolioProject = RawProject & {
 
 type ProjectMeta = {
   companyId: CompanyId;
-  period: string;
+  period: LocalizedText;
   image: string;
   galleryImages?: string[];
   source: string;
-  scope: string;
+  scope: LocalizedText;
   extraLinks?: ProjectLink[];
-  note?: string;
+  note?: LocalizedText;
 };
 
 export type CompanyGroup = {
@@ -69,12 +72,39 @@ export type CompanyGroup = {
   highlights: string[];
 };
 
-export const profile = {
+export type Profile = {
+  name: string;
+  role: string;
+  headline: string;
+  location: string;
+  cvDownloadHref: string;
+  cvFileName: string;
+  cvDownloadAtsPdfHref: string;
+  cvDownloadDocxHref: string;
+  cvDownloadTxtHref: string;
+  contacts: ContactItem[];
+};
+
+type CompanyGroupContent = {
+  id: CompanyId;
+  name: LocalizedText;
+  period: LocalizedText;
+  role: LocalizedText;
+  summary: LocalizedText;
+  highlights: Record<AppLocale, string[]>;
+};
+
+type HeroStat = {
+  label: string;
+  value: string;
+};
+
+function sameLocale(text: string): LocalizedText {
+  return { vi: text, en: text };
+}
+
+const sharedProfile = {
   name: "Phan Hồng Quân",
-  role: "Frontend Engineer (React Native / React / Next.js)",
-  headline:
-    "Xây dựng sản phẩm thực chiến cho mobile và web admin, tập trung vào độ ổn định phát hành, hiệu năng và khả năng mở rộng theo business growth.",
-  location: "Gò Vấp, Hồ Chí Minh, Việt Nam",
   cvDownloadHref: "/cv/Phan-Hong-Quan-Executive-CV.pdf",
   cvFileName: "Phan-Hong-Quan-Executive-CV.pdf",
   cvDownloadAtsPdfHref: "/cv/Phan-Hong-Quan-ATS-Resume.pdf",
@@ -107,54 +137,102 @@ export const profile = {
       href: "https://cv-dev-portfolio.vercel.app",
     },
   ] as ContactItem[],
+} satisfies Omit<
+  Profile,
+  "role" | "headline" | "location"
+>;
+
+const profileContent: Record<
+  AppLocale,
+  Pick<Profile, "role" | "headline" | "location">
+> = {
+  vi: {
+    role: "Frontend Engineer (React Native / React / Next.js)",
+    headline:
+      "Xây dựng sản phẩm thực chiến cho mobile và web admin, tập trung vào độ ổn định phát hành, hiệu năng và khả năng mở rộng theo business growth.",
+    location: "Gò Vấp, Hồ Chí Minh, Việt Nam",
+  },
+  en: {
+    role: "Frontend Engineer (React Native / React / Next.js)",
+    headline:
+      "Building production-grade mobile apps and web admin platforms with a focus on release stability, performance, and scalable product growth.",
+    location: "Go Vap, Ho Chi Minh City, Vietnam",
+  },
 };
 
-export const companyGroups: CompanyGroup[] = [
+const companyGroupContent: CompanyGroupContent[] = [
   {
     id: "eboost",
-    name: "Eboost (EVMobility)",
-    period: "08/2024 - Hiện tại",
-    role: "Frontend Engineer",
-    summary:
-      "Phát triển đồng thời mobile app cho EV charging và CMS quản trị nội bộ cho vận hành, marketing, partnerships và technical monitoring.",
-    highlights: [
-      "Làm chủ delivery cho 2 sản phẩm chính: app người dùng + hệ thống CMS/admin.",
-      "Tích hợp realtime workflow (MQTT, notifications, charging status).",
-      "Xây nền tảng quản trị dữ liệu lớn với Next.js + Ant Design + React Query.",
-    ],
+    name: sameLocale("Eboost (EVMobility)"),
+    period: { vi: "08/2024 - Hiện tại", en: "08/2024 - Present" },
+    role: sameLocale("Frontend Engineer"),
+    summary: {
+      vi: "Phát triển đồng thời mobile app EV charging và CMS quản trị nội bộ cho vận hành, marketing, partnership và technical monitoring.",
+      en: "Delivered both an EV charging mobile app and an internal CMS platform for operations, marketing, partnerships, and technical monitoring.",
+    },
+    highlights: {
+      vi: [
+        "Làm chủ delivery cho 2 sản phẩm chính: app người dùng và hệ thống CMS/admin.",
+        "Tích hợp workflow realtime (MQTT, notifications, charging status).",
+        "Xây nền tảng quản trị dữ liệu lớn với Next.js, Ant Design và React Query.",
+      ],
+      en: [
+        "Owned delivery for two core products: consumer app and CMS/admin platform.",
+        "Implemented realtime workflows with MQTT, notifications, and charging status updates.",
+        "Built scalable data-management modules with Next.js, Ant Design, and React Query.",
+      ],
+    },
   },
   {
     id: "freelance",
-    name: "Freelance Project",
-    period: "10/2024 - 02/2025",
-    role: "Frontend Developer (Freelance)",
-    summary:
-      "Triển khai dự án Kinis cho luồng landing growth, investor/partnership pipeline và nền tảng vận hành liên quan.",
-    highlights: [
-      "Thiết kế website growth pages có định hướng chuyển đổi.",
-      "Xây contact + admin management flow cho lead investor/partner.",
-      "Mở rộng sang hệ sinh thái gồm web, mobile, backend, dashboard theo nhu cầu dự án.",
-    ],
+    name: { vi: "Freelance Project", en: "Freelance Project" },
+    period: sameLocale("10/2024 - 02/2025"),
+    role: sameLocale("Frontend Developer (Freelance)"),
+    summary: {
+      vi: "Triển khai Kinis cho landing growth, investor/partnership pipeline và nền tảng vận hành liên quan.",
+      en: "Built Kinis growth landing flows, investor/partnership pipelines, and related operational interfaces.",
+    },
+    highlights: {
+      vi: [
+        "Thiết kế website growth pages định hướng chuyển đổi.",
+        "Xây contact + admin management flow cho lead investor/partner.",
+        "Mở rộng hệ sinh thái gồm web, mobile, backend, dashboard theo nhu cầu dự án.",
+      ],
+      en: [
+        "Developed conversion-focused growth pages for key business funnels.",
+        "Implemented investor/partner contact capture and admin management workflows.",
+        "Contributed across web, mobile, backend, and dashboard surfaces as project scope expanded.",
+      ],
+    },
   },
   {
     id: "ims",
-    name: "IMS Solution",
-    period: "03/2022 - 08/2024",
-    role: "Mobile App Developer",
-    summary:
-      "Tham gia phát triển nhiều ứng dụng production trong các domain ride-hailing, delivery, e-commerce, membership, marketplace và food booking.",
-    highlights: [
-      "Phát triển và maintain nhiều ứng dụng mobile thuộc một product suite lớn.",
-      "Thực hiện full app lifecycle: feature, bugfix, optimization, release OTA.",
-      "Tích hợp sâu với Firebase, maps/location, payment, deeplink, push notifications.",
-    ],
+    name: sameLocale("IMS Solution"),
+    period: sameLocale("03/2022 - 08/2024"),
+    role: sameLocale("Mobile App Developer"),
+    summary: {
+      vi: "Tham gia phát triển nhiều ứng dụng production trong domain mobility, delivery, e-commerce, membership và marketplace.",
+      en: "Contributed to multiple production apps across mobility, delivery, e-commerce, membership, and marketplace domains.",
+    },
+    highlights: {
+      vi: [
+        "Phát triển và maintain nhiều ứng dụng mobile thuộc một product suite lớn.",
+        "Thực hiện full app lifecycle: feature, bugfix, optimization, release OTA.",
+        "Tích hợp Firebase, maps/location, payment, deeplink, push notifications.",
+      ],
+      en: [
+        "Built and maintained multiple production apps in a large product suite.",
+        "Handled full app lifecycle: feature delivery, bug fixing, optimization, and OTA release.",
+        "Integrated Firebase, maps/geolocation, payments, deep links, and push notifications.",
+      ],
+    },
   },
 ];
 
 const projectMeta: Record<string, ProjectMeta> = {
   "eboost-mobile-app": {
     companyId: "eboost",
-    period: "2024 - Hiện tại",
+    period: { vi: "2024 - Hiện tại", en: "2024 - Present" },
     image: "/images/eboost-app/eboost-app-main.png",
     galleryImages: [
       "/images/eboost-app/home.png",
@@ -169,14 +247,15 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/eboost-app/IMG_6883.png",
     ],
     source: "Company/Eboost/eboost-mobile-app",
-    scope: "Consumer EV charging mobile app",
-    extraLinks: [
-      { label: "Eboost Website", link: "https://eboost.vn" },
-    ],
+    scope: {
+      vi: "Ứng dụng sạc xe điện cho người dùng",
+      en: "Consumer EV charging mobile app",
+    },
+    extraLinks: [{ label: "Eboost Website", link: "https://eboost.vn" }],
   },
   "eboost-cms": {
     companyId: "eboost",
-    period: "2024 - Hiện tại",
+    period: { vi: "2024 - Hiện tại", en: "2024 - Present" },
     image: "/images/eboost-cms/eboost-cms.png",
     galleryImages: [
       "/images/eboost-cms/cms-transactions-data.png",
@@ -187,14 +266,15 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/eboost-cms/cms-terms-conditions-data.png",
     ],
     source: "Company/Eboost/new-cms",
-    scope: "Admin & operations CMS platform",
-    extraLinks: [
-      { label: "Eboost Website", link: "https://eboost.vn" },
-    ],
+    scope: {
+      vi: "Nền tảng CMS quản trị và vận hành",
+      en: "Admin and operations CMS platform",
+    },
+    extraLinks: [{ label: "Eboost Website", link: "https://eboost.vn" }],
   },
   kinis: {
     companyId: "freelance",
-    period: "10/2024 - 02/2025",
+    period: sameLocale("10/2024 - 02/2025"),
     image: "/images/kinis/kinis-home-hero.png",
     galleryImages: [
       "/images/kinis/kinis-about-hero.png",
@@ -208,11 +288,14 @@ const projectMeta: Record<string, ProjectMeta> = {
     ],
     source:
       "MyProject/kinis (kinis_web, Kinis mobile app, kinis_server, kinis_dashboard)",
-    scope: "Landing + investor/partnership + admin + ecosystem expansion",
+    scope: {
+      vi: "Landing, investor/partnership, admin và mở rộng hệ sinh thái",
+      en: "Landing + investor/partnership + admin + ecosystem expansion",
+    },
   },
   sky: {
     companyId: "ims",
-    period: "2022 - 2024",
+    period: sameLocale("2022 - 2024"),
     image: "/images/see/see.png",
     galleryImages: [
       "/images/see/1-chon-loai-xe.png",
@@ -228,15 +311,21 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/see/diem-tich-luy.png",
     ],
     source: "Company/IMS/sky",
-    scope: "All-in-one ride, delivery, food & commerce ecosystem",
+    scope: {
+      vi: "Hệ sinh thái gọi xe, giao hàng, ẩm thực và mua sắm all-in-one",
+      en: "All-in-one ride, delivery, food, and commerce ecosystem",
+    },
     extraLinks: [
-      { label: "Google Play", link: "https://play.google.com/store/apps/details?id=com.ims.sky" },
+      {
+        label: "Google Play",
+        link: "https://play.google.com/store/apps/details?id=com.ims.sky",
+      },
       { label: "App Store", link: "https://apps.apple.com/app/id6475276823" },
     ],
   },
   rpm: {
     companyId: "ims",
-    period: "2022 - 2024",
+    period: sameLocale("2022 - 2024"),
     image: "/images/rpm/rpm.png",
     galleryImages: [
       "/images/rpm/rpm-splash-screen.png",
@@ -249,16 +338,12 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/rpm/cong-no.png",
     ],
     source: "Company/IMS/rpm",
-    scope: "E-commerce app",
-    extraLinks: [
-      { label: "RPM Website", link: "https://rpmvietnam.com" },
-      { label: "Google Play", link: "https://play.google.com/store/apps/details?id=com.ims.rpm" },
-      { label: "App Store", link: "https://apps.apple.com/app/id6490306551" },
-    ],
+    scope: { vi: "Ứng dụng thương mại điện tử", en: "E-commerce app" },
+    extraLinks: [{ label: "RPM Website", link: "https://rpmvietnam.com" }],
   },
   carta: {
     companyId: "ims",
-    period: "2022 - 2024",
+    period: sameLocale("2022 - 2024"),
     image: "/images/carta/cartas.png",
     galleryImages: [
       "/images/carta/splash-screen.png",
@@ -268,16 +353,19 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/carta/CTKM.jpg",
     ],
     source: "Company/IMS/carta",
-    scope: "Marketplace mobile app",
+    scope: { vi: "Ứng dụng marketplace", en: "Marketplace mobile app" },
     extraLinks: [
-      { label: "Google Play", link: "https://play.google.com/store/apps/details?id=com.ims.carta" },
+      {
+        label: "Google Play",
+        link: "https://play.google.com/store/apps/details?id=com.ims.carta",
+      },
       { label: "App Store", link: "https://apps.apple.com/app/id1661596013" },
       { label: "Dynamic Link", link: "https://cartashop.page.link" },
     ],
   },
   "e-member": {
     companyId: "ims",
-    period: "2022 - 2024",
+    period: sameLocale("2022 - 2024"),
     image: "/images/checkin/checkin.png",
     galleryImages: [
       "/images/checkin/log-in.jpg",
@@ -289,9 +377,15 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/checkin/lich-su.jpg",
     ],
     source: "Company/IMS/e-member",
-    scope: "Event check-in, e-ticket & attendee management",
+    scope: {
+      vi: "Quản lý check-in sự kiện, e-ticket và khách tham dự",
+      en: "Event check-in, e-ticket and attendee management",
+    },
     extraLinks: [
-      { label: "Google Play", link: "https://play.google.com/store/apps/details?id=com.ims.emember" },
+      {
+        label: "Google Play",
+        link: "https://play.google.com/store/apps/details?id=com.ims.emember",
+      },
       {
         label: "App Store",
         link: "https://apps.apple.com/vn/app/dtm-online/id6444394684?l=vi",
@@ -300,7 +394,7 @@ const projectMeta: Record<string, ProjectMeta> = {
   },
   "hong-phuc": {
     companyId: "ims",
-    period: "2022 - 2024",
+    period: sameLocale("2022 - 2024"),
     image: "/images/hong-phuc/hongphuc.png",
     galleryImages: [
       "/images/hong-phuc/dang-ky-dich-vu.png",
@@ -312,8 +406,14 @@ const projectMeta: Record<string, ProjectMeta> = {
       "/images/hong-phuc/thanh-toan.png",
     ],
     source: "Company/IMS/hong-phuc",
-    scope: "Housekeeping & care service booking app",
-    note: "Ứng dụng đã ngừng hoạt động, hiện không còn link tải public.",
+    scope: {
+      vi: "Ứng dụng đặt dịch vụ giúp việc và chăm sóc",
+      en: "Housekeeping and care service booking app",
+    },
+    note: {
+      vi: "Ứng dụng đã ngừng hoạt động, hiện không còn link tải public.",
+      en: "This app has been discontinued and no longer has a public download link.",
+    },
   },
 };
 
@@ -348,57 +448,116 @@ function toPrimaryLink(links: ProjectLink[]): ProjectLink[] {
   return uniques.length > 0 ? [uniques[0]] : [];
 }
 
-const projects = (sourceProjects as RawProject[])
-  .map((project) => {
-    const meta = projectMeta[project.id];
+function buildProjects(locale: AppLocale): PortfolioProject[] {
+  return (sourceProjects as RawProject[])
+    .map((project) => {
+      const meta = projectMeta[project.id];
 
-    if (!meta) {
+      if (!meta) {
+        return {
+          ...project,
+          companyId: "ims" as CompanyId,
+          period: "2022 - 2024",
+          image: "/images/sky/sky.png",
+          galleryImages: [],
+          source: "Company/IMS",
+          scope: locale === "vi" ? "Dự án mobile" : "Mobile project",
+          links: toPrimaryLink(normalizeLinks(project.linkDownload)),
+        } satisfies PortfolioProject;
+      }
+
       return {
         ...project,
-        companyId: "ims" as CompanyId,
-        period: "2022 - 2024",
-        image: "/images/sky/sky.png",
-        galleryImages: [],
-        source: "Company/IMS",
-        scope: "Mobile project",
-        links: toPrimaryLink(normalizeLinks(project.linkDownload)),
+        companyId: meta.companyId,
+        period: meta.period[locale],
+        image: meta.image,
+        galleryImages: meta.galleryImages ?? [],
+        source: meta.source,
+        scope: meta.scope[locale],
+        note: meta.note?.[locale],
+        links: toPrimaryLink([
+          ...normalizeLinks(project.linkDownload),
+          ...(meta.extraLinks ?? []),
+        ]),
       } satisfies PortfolioProject;
-    }
+    })
+    .sort((a, b) => {
+      const order: Record<CompanyId, number> = {
+        eboost: 0,
+        freelance: 1,
+        ims: 2,
+      };
+      return order[a.companyId] - order[b.companyId];
+    });
+}
 
-    return {
-      ...project,
-      companyId: meta.companyId,
-      period: meta.period,
-      image: meta.image,
-      galleryImages: meta.galleryImages ?? [],
-      source: meta.source,
-      scope: meta.scope,
-      note: meta.note,
-      links: toPrimaryLink([
-        ...normalizeLinks(project.linkDownload),
-        ...(meta.extraLinks ?? []),
-      ]),
-    } satisfies PortfolioProject;
-  })
-  .sort((a, b) => {
-    const order: Record<CompanyId, number> = { eboost: 0, freelance: 1, ims: 2 };
-    return order[a.companyId] - order[b.companyId];
-  });
+export function getProfile(locale: AppLocale): Profile {
+  return {
+    ...sharedProfile,
+    ...profileContent[locale],
+  };
+}
 
-export const groupedProjects = companyGroups.map((company) => ({
-  ...company,
-  projects: projects.filter((project) => project.companyId === company.id),
-}));
+export function getCompanyGroups(locale: AppLocale): CompanyGroup[] {
+  return companyGroupContent.map((item) => ({
+    id: item.id,
+    name: item.name[locale],
+    period: item.period[locale],
+    role: item.role[locale],
+    summary: item.summary[locale],
+    highlights: item.highlights[locale],
+  }));
+}
 
-export const heroStats = [
-  { label: "Company Groups", value: "3" },
-  { label: "Projects Shown", value: String(projects.length) },
-  { label: "Core Domains", value: "EV, Mobility, Commerce, Admin" },
-  { label: "Main Stack", value: "React Native + Next.js + TypeScript" },
-];
+export function getGroupedProjects(locale: AppLocale) {
+  const companyGroups = getCompanyGroups(locale);
+  const projects = buildProjects(locale);
 
-export const missingInfoChecklist = [
-  "Nếu có thêm hồ sơ chứng chỉ hoặc bài viết kỹ thuật nổi bật, mình sẽ gắn vào contact section.",
-  "Nếu có thêm ảnh screenshot thực tế (màn hình app/web), mình sẽ thay logo hiện tại bằng gallery từng dự án.",
-  "Nếu bạn muốn đẩy conversion tuyển dụng cao hơn, gửi thêm 2-3 KPI thực tế cho mỗi company group.",
-];
+  return companyGroups.map((company) => ({
+    ...company,
+    projects: projects.filter((project) => project.companyId === company.id),
+  }));
+}
+
+export function getHeroStats(locale: AppLocale): HeroStat[] {
+  const projects = buildProjects(locale);
+
+  if (locale === "en") {
+    return [
+      { label: "Company Groups", value: "3" },
+      { label: "Projects Shown", value: String(projects.length) },
+      { label: "Core Domains", value: "EV, Mobility, Commerce, Admin" },
+      { label: "Main Stack", value: "React Native + Next.js + TypeScript" },
+    ];
+  }
+
+  return [
+    { label: "Nhóm công ty", value: "3" },
+    { label: "Dự án hiển thị", value: String(projects.length) },
+    { label: "Domain chính", value: "EV, Mobility, Commerce, Admin" },
+    { label: "Stack chính", value: "React Native + Next.js + TypeScript" },
+  ];
+}
+
+const defaultLocale: AppLocale = "vi";
+
+export const profile = getProfile(defaultLocale);
+export const companyGroups = getCompanyGroups(defaultLocale);
+export const groupedProjects = getGroupedProjects(defaultLocale);
+export const heroStats = getHeroStats(defaultLocale);
+
+export function getMissingInfoChecklist(locale: AppLocale): string[] {
+  if (locale === "en") {
+    return [
+      "If you have certificates or technical publications, they can be added to the contact section.",
+      "If you add more production screenshots, each project gallery can be expanded further.",
+      "For stronger recruiter conversion, add 2-3 measurable KPIs for each company group.",
+    ];
+  }
+
+  return [
+    "Nếu có thêm hồ sơ chứng chỉ hoặc bài viết kỹ thuật nổi bật, mình sẽ gắn vào contact section.",
+    "Nếu có thêm ảnh screenshot thực tế (màn hình app/web), mình sẽ thay logo hiện tại bằng gallery từng dự án.",
+    "Nếu bạn muốn đẩy conversion tuyển dụng cao hơn, gửi thêm 2-3 KPI thực tế cho mỗi company group.",
+  ];
+}

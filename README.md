@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website (Next.js)
 
-## Getting Started
+Personal portfolio website for **Phan Hong Quan**, focused on recruiter-friendly project presentation:
+- grouped projects by company
+- rich screenshot galleries with modal preview
+- single QR/link per project
+- downloadable CV assets (PDF/DOCX/TXT)
+- bilingual UI with `next-intl` (Vietnamese / English)
+- mobile-friendly UI + PWA support
 
-First, run the development server:
+Live site:
+- [cv-dev-portfolio.vercel.app](https://cv-dev-portfolio.vercel.app)
 
+## Tech Stack
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Lucide icons
+- qrcode.react
+- next-intl
+
+## Local Development
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
+Language routes:
+- Vietnamese (default): `/`
+- English: `/en`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
+- `npm run dev` - start dev server
+- `npm run build` - production build
+- `npm run start` - run production server
+- `npm run lint` - run ESLint
+- `./build-cv-pdf.sh` - rebuild CV PDF files from HTML source (if needed)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content Management
+Main content files:
+- `src/data/projects.json` - project-level details (title, responsibilities, features, team size, base links)
+- `src/data/portfolio.ts` - profile info, company grouping, project metadata (cover images, gallery, extra notes)
 
-## Learn More
+Image assets:
+- `public/images/*` - project screenshots and cover visuals
+- `public/projects/*` - legacy/static project art (if still referenced)
 
-To learn more about Next.js, take a look at the following resources:
+CV assets:
+- `public/cv/*`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build Verification
+```bash
+npm run lint
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
+Recommended: Vercel (Next.js native).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Any static/public update (images, CV files, manifest icons) is included automatically in build output.

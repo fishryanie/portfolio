@@ -1,6 +1,7 @@
 "use client";
 
 import { ExternalLink } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { QRCodeSVG } from "qrcode.react";
 import type { ProjectLink } from "@/data/portfolio";
 
@@ -18,8 +19,14 @@ function formatLinkText(link: string): string {
 }
 
 export function ProjectLinkQrGrid({ links }: ProjectLinkQrGridProps) {
+  const t = useTranslations("ProjectLinkQrGrid");
+
   if (links.length === 0) {
-    return <p className="mt-2 text-sm text-[var(--muted)]">Internal project / private distribution (NDA).</p>;
+    return (
+      <p className="mt-2 text-sm text-[var(--muted)]">
+        {t("privateDistribution")}
+      </p>
+    );
   }
 
   return (

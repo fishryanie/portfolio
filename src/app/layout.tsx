@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Syne } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import { PwaRegister } from "@/components/ui/pwa-register";
 import "./globals.css";
 
@@ -14,9 +15,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Senior Mobile & Fullstack Engineer",
+  title: "Phan Hong Quan | Frontend Engineer Portfolio",
   description:
-    "Portfolio cá nhân với case study chi tiết về React Native và Next.js projects.",
+    "Portfolio cua Phan Hong Quan, Frontend Engineer chuyen React Native va Next.js, trinh bay du an theo cong ty kem gallery va lien he nhanh.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -44,13 +45,15 @@ export const viewport: Viewport = {
   themeColor: "#132531",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="vi">
+    <html lang={locale}>
       <body className={`${syne.variable} ${manrope.variable} antialiased`}>
         <PwaRegister />
         {children}

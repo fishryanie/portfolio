@@ -1,7 +1,10 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Languages } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
 
 type NavItem = {
   label: string;
@@ -16,6 +19,10 @@ type FloatingNavProps = {
 };
 
 export function FloatingNav({ name, items, ctaHref, ctaLabel }: FloatingNavProps) {
+  const t = useTranslations("FloatingNav");
+  const locale = useLocale() as AppLocale;
+  const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,6 +37,8 @@ export function FloatingNav({ name, items, ctaHref, ctaLabel }: FloatingNavProps
       window.removeEventListener("scroll", update);
     };
   }, []);
+
+  const nextLocale: AppLocale = locale === "vi" ? "en" : "vi";
 
   return (
     <header className="sticky top-0 z-50">
@@ -59,14 +68,26 @@ export function FloatingNav({ name, items, ctaHref, ctaLabel }: FloatingNavProps
           ))}
         </nav>
 
-        <a
-          href={ctaHref}
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--accent)] px-3 py-2 text-[11px] font-semibold text-white transition-transform hover:-translate-y-0.5 sm:gap-2 sm:px-4 sm:text-xs"
-        >
-          <span className="sm:hidden">Liên hệ</span>
-          <span className="hidden sm:inline">{ctaLabel}</span>
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </a>
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            type="button"
+            onClick={() => router.replace(pathname, { locale: nextLocale })}
+            className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-soft)] bg-[var(--card)] px-3 py-2 text-[11px] font-semibold text-[var(--ink)] transition-transform hover:-translate-y-0.5 sm:gap-2 sm:text-xs"
+            aria-label={`${t("languageLabel")}: ${nextLocale.toUpperCase()}`}
+          >
+            <Languages className="h-3.5 w-3.5" />
+            <span>{nextLocale.toUpperCase()}</span>
+          </button>
+
+          <a
+            href={ctaHref}
+            className="inline-flex items-center gap-1.5 rounded-full bg-[var(--accent)] px-3 py-2 text-[11px] font-semibold text-white transition-transform hover:-translate-y-0.5 sm:gap-2 sm:px-4 sm:text-xs"
+          >
+            <span className="sm:hidden">{t("mobileContact")}</span>
+            <span className="hidden sm:inline">{ctaLabel}</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        </div>
       </div>
     </header>
   );

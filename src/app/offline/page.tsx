@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Offline | Phan Hong Quan Portfolio",
+  description: "Offline fallback page for portfolio PWA mode.",
+};
 
 export default function OfflinePage() {
   return (

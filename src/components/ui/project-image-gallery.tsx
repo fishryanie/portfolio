@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type ProjectImageGalleryProps = {
   title: string;
@@ -16,6 +17,8 @@ export function ProjectImageGallery({
   coverImage,
   galleryImages,
 }: ProjectImageGalleryProps) {
+  const t = useTranslations("ProjectImageGallery");
+  const shouldReduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
 
@@ -121,7 +124,7 @@ export function ProjectImageGallery({
           type="button"
           onClick={() => openImage(coverImage)}
           className="group relative block aspect-[4/3] min-h-[220px] w-full cursor-zoom-in bg-gradient-to-br from-white/70 via-[var(--accent-3)]/10 to-[var(--accent-2)]/15 text-left"
-          aria-label={`Open ${title} main image`}
+          aria-label={t("mainImage", { title })}
         >
           <Image
             src={coverImage}
@@ -132,7 +135,7 @@ export function ProjectImageGallery({
           />
           <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-semibold text-white opacity-0 transition-opacity group-hover:opacity-100">
             <ZoomIn className="h-3.5 w-3.5" />
-            View
+            {t("view")}
           </span>
         </button>
 
@@ -144,7 +147,7 @@ export function ProjectImageGallery({
                 type="button"
                 onClick={() => openImage(imageSrc)}
                 className="group relative aspect-[9/16] overflow-hidden rounded-xl border border-[var(--border-soft)] bg-white text-left"
-                aria-label={`Open ${title} screenshot ${index + 1}`}
+                aria-label={t("screenshot", { index: index + 1, title })}
               >
                 <Image
                   src={imageSrc}
@@ -166,7 +169,7 @@ export function ProjectImageGallery({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
             className="fixed inset-0 z-[120] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
             onClick={closeViewer}
           >
@@ -174,7 +177,7 @@ export function ProjectImageGallery({
               initial={{ opacity: 0, y: 20, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.97 }}
-              transition={{ duration: 0.24, ease: "easeOut" }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.24, ease: "easeOut" }}
               className="relative w-full max-w-5xl"
               onClick={(event) => event.stopPropagation()}
             >
@@ -182,7 +185,7 @@ export function ProjectImageGallery({
                 type="button"
                 onClick={closeViewer}
                 className="absolute right-2 top-2 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/65 text-white transition-colors hover:bg-black/80"
-                aria-label="Close image preview"
+                aria-label={t("close")}
               >
                 <X className="h-4 w-4" />
               </button>
@@ -191,7 +194,7 @@ export function ProjectImageGallery({
                 type="button"
                 onClick={() => paginate(-1)}
                 className="absolute left-2 top-1/2 z-10 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
-                aria-label="Previous image"
+                aria-label={t("previous")}
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -200,7 +203,7 @@ export function ProjectImageGallery({
                 type="button"
                 onClick={() => paginate(1)}
                 className="absolute right-2 top-1/2 z-10 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80"
-                aria-label="Next image"
+                aria-label={t("next")}
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -212,7 +215,13 @@ export function ProjectImageGallery({
                     custom={direction}
                     variants={{
                       enter: (currentDirection: number) => ({
-                        x: currentDirection > 0 ? 90 : currentDirection < 0 ? -90 : 0,
+                        x: shouldReduceMotion
+                          ? 0
+                          : currentDirection > 0
+                            ? 90
+                            : currentDirection < 0
+                              ? -90
+                              : 0,
                         opacity: 0,
                       }),
                       center: {
@@ -220,19 +229,29 @@ export function ProjectImageGallery({
                         opacity: 1,
                       },
                       exit: (currentDirection: number) => ({
-                        x: currentDirection > 0 ? -90 : currentDirection < 0 ? 90 : 0,
+                        x: shouldReduceMotion
+                          ? 0
+                          : currentDirection > 0
+                            ? -90
+                            : currentDirection < 0
+                              ? 90
+                              : 0,
                         opacity: 0,
                       }),
                     }}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.22, ease: "easeOut" }}
-                    drag="x"
+                    transition={{ duration: shouldReduceMotion ? 0 : 0.22, ease: "easeOut" }}
+                    drag={shouldReduceMotion ? false : "x"}
                     dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.12}
+                    dragElastic={shouldReduceMotion ? 0 : 0.12}
                     className="absolute inset-0 cursor-grab active:cursor-grabbing"
                     onDragEnd={(_, dragInfo) => {
+                      if (shouldReduceMotion) {
+                        return;
+                      }
+
                       if (dragInfo.offset.x <= -80) {
                         paginate(1);
                       } else if (dragInfo.offset.x >= 80) {

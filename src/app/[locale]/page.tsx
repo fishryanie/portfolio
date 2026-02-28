@@ -8,32 +8,83 @@ import {
   MapPin,
   Sparkles,
 } from "lucide-react";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { FloatingNav } from "@/components/ui/floating-nav";
 import { ProjectImageGallery } from "@/components/ui/project-image-gallery";
 import { ProjectLinkQrGrid } from "@/components/ui/project-link-qr-grid";
 import { Reveal } from "@/components/ui/reveal";
 import {
-  groupedProjects,
-  heroStats,
-  profile,
+  getGroupedProjects,
+  getHeroStats,
+  getProfile,
   type PortfolioProject,
 } from "@/data/portfolio";
+import { routing, type AppLocale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Phan Hồng Quân | Portfolio Projects by Company",
-  description:
-    "Portfolio hiển thị chi tiết dự án theo công ty: Eboost, Freelance Kinis và IMS (React Native / Next.js).",
+type HomePageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-const navItems = [
-  { label: "Tổng quan", href: "#overview" },
-  { label: "Eboost", href: "#company-eboost" },
-  { label: "Freelance", href: "#company-freelance" },
-  { label: "IMS", href: "#company-ims" },
-  { label: "Liên hệ", href: "#contact" },
-];
+type HomeLabels = {
+  metaCustomer: string;
+  metaPlatform: string;
+  metaTeamSize: string;
+  metaScope: string;
+  featureGroups: string;
+  responsibilities: string;
+  linksAccess: string;
+};
 
-export default function Home() {
+export async function generateMetadata({
+  params,
+}: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = hasLocale(routing.locales, locale)
+    ? locale
+    : routing.defaultLocale;
+  const t = await getTranslations({ locale: safeLocale, namespace: "Metadata" });
+
+  return {
+    title: t("homeTitle"),
+    description: t("homeDescription"),
+  };
+}
+
+export default async function Home({ params }: HomePageProps) {
+  const { locale: localeParam } = await params;
+
+  if (!hasLocale(routing.locales, localeParam)) {
+    notFound();
+  }
+
+  const locale = localeParam as AppLocale;
+  setRequestLocale(locale);
+
+  const t = await getTranslations({ locale, namespace: "Home" });
+  const profile = getProfile(locale);
+  const groupedProjects = getGroupedProjects(locale);
+  const heroStats = getHeroStats(locale);
+
+  const navItems = [
+    { label: t("navOverview"), href: "#overview" },
+    { label: t("navEboost"), href: "#company-eboost" },
+    { label: t("navFreelance"), href: "#company-freelance" },
+    { label: t("navIms"), href: "#company-ims" },
+    { label: t("navContact"), href: "#contact" },
+  ];
+
+  const projectLabels: HomeLabels = {
+    metaCustomer: t("metaCustomer"),
+    metaPlatform: t("metaPlatform"),
+    metaTeamSize: t("metaTeamSize"),
+    metaScope: t("metaScope"),
+    featureGroups: t("featureGroups"),
+    responsibilities: t("responsibilities"),
+    linksAccess: t("linksAccess"),
+  };
+
   const primaryContact =
     profile.contacts.find((item) => item.label === "Email")?.href ??
     "mailto:qphanquan1998@gmail.com";
@@ -46,7 +97,7 @@ export default function Home() {
         name={profile.name}
         items={navItems}
         ctaHref={primaryContact}
-        ctaLabel="Liên hệ nhanh"
+        ctaLabel={t("quickContact")}
       />
 
       <section
@@ -57,7 +108,7 @@ export default function Home() {
         <Reveal>
           <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--card)] px-4 py-2 text-xs font-semibold text-[var(--muted)]">
             <Sparkles className="h-3.5 w-3.5 text-[var(--accent-2)]" />
-            Portfolio chi tiết theo công ty và từng dự án
+            {t("heroBadge")}
           </p>
         </Reveal>
 
@@ -76,15 +127,18 @@ export default function Home() {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-5 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 sm:w-auto"
               >
                 <Download className="h-4 w-4" />
-                Tải CV (Executive PDF)
+                {t("downloadCv")}
               </a>
             </div>
           </Reveal>
 
           <Reveal delay={0.16}>
-            <div className="grid gap-3 rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] p-6 shadow-xl shadow-[color:var(--shadow)]">
+            <div
+              id="contact"
+              className="grid gap-3 rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] p-6 shadow-xl shadow-[color:var(--shadow)]"
+            >
               <p className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                Thông tin liên hệ
+                {t("contactInfo")}
               </p>
               <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
                 <MapPin className="h-4 w-4 text-[var(--accent-2)]" />
@@ -130,7 +184,7 @@ export default function Home() {
         <Reveal>
           <div className="rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] p-6 shadow-xl shadow-[color:var(--shadow)] sm:p-8">
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
-              Work Timeline
+              {t("workTimeline")}
             </p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {groupedProjects.map((company) => (
@@ -161,7 +215,7 @@ export default function Home() {
               <div className="flex flex-wrap items-end justify-between gap-5">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-                    Company Group
+                    {t("companyGroupLabel")}
                   </p>
                   <h2 className="mt-2 font-display text-3xl text-[var(--ink)] sm:text-4xl">
                     {company.name}
@@ -191,7 +245,7 @@ export default function Home() {
             <div className="mt-6 grid gap-6">
               {company.projects.map((project, projectIndex) => (
                 <Reveal key={project.id} delay={projectIndex * 0.06}>
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} labels={projectLabels} />
                 </Reveal>
               ))}
             </div>
@@ -202,7 +256,13 @@ export default function Home() {
   );
 }
 
-function ProjectCard({ project }: { project: PortfolioProject }) {
+function ProjectCard({
+  project,
+  labels,
+}: {
+  project: PortfolioProject;
+  labels: HomeLabels;
+}) {
   return (
     <article className="overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] shadow-xl shadow-[color:var(--shadow)]">
       <div className="grid gap-0 lg:grid-cols-[340px_1fr]">
@@ -228,22 +288,22 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
           <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <MetaItem
               icon={<Building2 className="h-4 w-4" />}
-              label="Customer"
+              label={labels.metaCustomer}
               value={project.customer}
             />
             <MetaItem
               icon={<Layers2 className="h-4 w-4" />}
-              label="Platform"
+              label={labels.metaPlatform}
               value={project.platform.join(", ")}
             />
             <MetaItem
               icon={<CalendarDays className="h-4 w-4" />}
-              label="Team Size"
+              label={labels.metaTeamSize}
               value={`${project.member}`}
             />
             <MetaItem
               icon={<Sparkles className="h-4 w-4" />}
-              label="Scope"
+              label={labels.metaScope}
               value={project.scope}
             />
           </div>
@@ -266,7 +326,7 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--muted)]">
-                Feature Groups
+                {labels.featureGroups}
               </p>
               <div className="mt-3 space-y-3">
                 {(project.features ?? []).map((feature) => (
@@ -296,7 +356,7 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
 
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-[var(--muted)]">
-                Responsibilities
+                {labels.responsibilities}
               </p>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--muted)]">
                 {project.responsibility.map((item) => (
@@ -311,7 +371,7 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
 
           <div className="mt-6 rounded-2xl border border-[var(--border-soft)] bg-white/55 p-4">
             <p className="text-xs uppercase tracking-[0.15em] text-[var(--muted)]">
-              Links & Access
+              {labels.linksAccess}
             </p>
             <ProjectLinkQrGrid links={project.links} />
 

@@ -1,0 +1,44 @@
+{
+  "Metadata": {
+    "siteTitle": "Phan Hong Quan | Frontend Engineer Portfolio",
+    "siteDescription": "Portfolio cua Phan Hong Quan, Frontend Engineer chuyen React Native va Next.js, trinh bay du an theo cong ty kem gallery va lien he nhanh.",
+    "homeTitle": "Phan Hong Quan | Portfolio du an theo cong ty",
+    "homeDescription": "Portfolio cua Phan Hong Quan gom nhom du an theo cong ty, showcase anh thuc te, stack cong nghe va thong tin lien he cho recruiter.",
+    "manifestDescription": "Portfolio cua Phan Hong Quan, Frontend Engineer React Native va Next.js, voi project gallery theo tung company."
+  },
+  "FloatingNav": {
+    "mobileContact": "Lien he",
+    "languageLabel": "Ngon ngu"
+  },
+  "Home": {
+    "navOverview": "Tong quan",
+    "navEboost": "Eboost",
+    "navFreelance": "Freelance",
+    "navIms": "IMS",
+    "navContact": "Lien he",
+    "quickContact": "Lien he nhanh",
+    "heroBadge": "Portfolio chi tiet theo cong ty va tung du an",
+    "downloadCv": "Tai CV (Executive PDF)",
+    "contactInfo": "Thong tin lien he",
+    "workTimeline": "Hanh trinh cong viec",
+    "companyGroupLabel": "Nhom cong ty",
+    "metaCustomer": "Khach hang",
+    "metaPlatform": "Nen tang",
+    "metaTeamSize": "Quy mo team",
+    "metaScope": "Pham vi",
+    "featureGroups": "Nhom tinh nang",
+    "responsibilities": "Trach nhiem",
+    "linksAccess": "Link & QR truy cap"
+  },
+  "ProjectLinkQrGrid": {
+    "privateDistribution": "Du an noi bo / phan phoi rieng tu (NDA)."
+  },
+  "ProjectImageGallery": {
+    "view": "Xem",
+    "close": "Dong xem anh",
+    "previous": "Anh truoc",
+    "next": "Anh sau",
+    "mainImage": "Mo anh chinh {title}",
+    "screenshot": "Mo anh man hinh {index} cua {title}"
+  }
+}
