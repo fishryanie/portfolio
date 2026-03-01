@@ -12,6 +12,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { FloatingNav } from "@/components/ui/floating-nav";
+import { MobileProjectCarousel } from "@/components/ui/mobile-project-carousel";
 import { ProjectImageGallery } from "@/components/ui/project-image-gallery";
 import { ProjectLinkQrGrid } from "@/components/ui/project-link-qr-grid";
 import { Reveal } from "@/components/ui/reveal";
@@ -105,14 +106,7 @@ export default async function Home({ params }: HomePageProps) {
         className="mx-auto w-[min(1180px,95vw)] pt-12"
         aria-label="Hero"
       >
-        <Reveal>
-          <p className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--card)] px-4 py-2 text-xs font-semibold text-[var(--muted)]">
-            <Sparkles className="h-3.5 w-3.5 text-[var(--accent-2)]" />
-            {t("heroBadge")}
-          </p>
-        </Reveal>
-
-        <div className="mt-8 grid gap-7 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+        <div className="mt-2 grid gap-7 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <Reveal delay={0.08}>
             <h1 className="font-display text-[clamp(2.05rem,10vw,3.75rem)] leading-[1.1] text-[var(--ink)]">
               {profile.role}
@@ -242,7 +236,13 @@ export default async function Home({ params }: HomePageProps) {
               </ul>
             </Reveal>
 
-            <div className="mt-6 grid gap-6">
+            <div className="mt-6 md:hidden">
+              <Reveal delay={0.06}>
+                <MobileProjectCarousel projects={company.projects} />
+              </Reveal>
+            </div>
+
+            <div className="mt-6 hidden gap-6 md:grid">
               {company.projects.map((project, projectIndex) => (
                 <Reveal key={project.id} delay={projectIndex * 0.06}>
                   <ProjectCard project={project} labels={projectLabels} />

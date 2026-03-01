@@ -12,8 +12,8 @@ Experienced in end-to-end frontend lifecycle: feature delivery, integration, deb
 
 CORE SKILLS
 Frontend & Mobile: React Native CLI, Next.js (App Router), React, TypeScript, JavaScript, React Navigation.
-State & Data: Redux Toolkit, Redux Saga, React Query, MobX, REST API integration.
-Infra & Integrations: Firebase, Notifee, MQTT, maps/location APIs, AppCenter CodePush.
+State & Data: Redux Toolkit, Redux Saga, MobX, MobX-State-Tree, React Query, REST API integration.
+Infra & Integrations: Firebase, Notifee, MQTT, Goong Map API, maps/location APIs, AppCenter CodePush.
 UI/Design System: Ant Design, reusable component architecture, responsive and scalable UI modules.
 
 PROFESSIONAL EXPERIENCE
@@ -23,11 +23,12 @@ Scope:
 - Worked across 2 main products: EBOOST Charging Network App (mobile) and EBOOST CMS/Admin Portal (web).
 Responsibilities:
 - Built EV charging app flows: station map, QR scan, outlet details, charging sessions, wallet top-up, transaction history.
-- Implemented notification and real-time-related updates for charging status and account activities.
-- Developed CMS modules for operations, marketing, partnerships, and technical monitoring teams.
+- Implemented notification and realtime updates for charging status and account activities.
+- Single-handedly delivered CMS modules for analytics, operations support, promotion workflows, app notifications, and partner report emails.
+- Built charging location/station status monitoring and remote issue handling flows for the operations team.
 - Improved release stability by fixing production issues and standardizing feature rollout workflows.
 Tech stack:
-- React Native, Next.js, TypeScript, React Query, Ant Design, Firebase, MQTT, REST APIs.
+- React Native, Next.js, TypeScript, MobX, MobX-State-Tree, React Query, Ant Design, Firebase, MQTT, REST APIs.
 
 FREELANCE (KINIS.AI) | Frontend Developer | Oct 2024 - Feb 2025 | Remote
 Scope:
@@ -42,13 +43,13 @@ Tech stack:
 
 IMS SOLUTION | Mobile App Developer | Mar 2022 - Aug 2024 | Ho Chi Minh City
 Scope:
-- Contributed to 8 production apps across ride-hailing, delivery, e-commerce, membership, marketplace, and food-booking.
+- Contributed to 6 production apps: S-Go (SEE), SKY, RPM, Carta, e-Member, and Clear Fast (Hong Phuc).
 Responsibilities:
-- Built and maintained core mobile flows: authentication/OTP, booking/order, wallet/top-up/withdraw, vouchers, support modules.
-- Integrated Firebase services, maps/geolocation, push notifications, dynamic/deep links, and payment-related flows.
+- Built and maintained core mobile flows: ride/food ordering, merchant onboarding, wallet/payment, vouchers, and support modules.
+- Integrated Firebase services, Goong map/geolocation, push notifications, dynamic/deep links, and payment-related flows.
 - Owned delivery lifecycle tasks: feature development, bug fixing, performance tuning, and OTA release support.
 Tech stack:
-- React Native, TypeScript, JavaScript, Redux Toolkit/Saga, Firebase, Maps API, AppCenter CodePush.
+- React Native, TypeScript, JavaScript, Redux Toolkit, Redux Saga, Firebase, Goong Map API, AppCenter CodePush.
 
 DETAILED PROJECT HIGHLIGHTS
 
@@ -88,15 +89,56 @@ Tech:
 Link:
 - https://kinis.ai
 
-4) IMS Product Suite (5 Apps) | Role: Mobile App Developer
-Projects:
-- SKY, RPM, Carta, e-Member, Hong Phuc.
+4) GC Flow Admin (Personal Business Project) | Role: Full-Stack Developer
+Project scope:
+- Internal admin platform for personal business operations, price profiles, order approval, and profit tracking.
 Key contributions:
-- Implemented and maintained high-volume consumer and driver workflows.
-- Delivered wallet/payment/order/booking/support modules across multiple product domains.
+- First 100% API-first project; delivered MVP in 3 days.
+- Implemented customer self-order via public link, admin approval, and revenue/profit analytics dashboard.
+Tech:
+- Next.js, TypeScript, Ant Design, MongoDB, Mongoose, Chart.js, next-intl.
+Link:
+- Private project (demo on request)
+
+5) CV Dev Portfolio Website | Role: Frontend Engineer (Personal Project)
+Project scope:
+- Personal portfolio website to present projects by company with bilingual content, visual project galleries, and recruiter-focused contact flow.
+Key contributions:
+- Built project showcase by company with image modal viewer, slide navigation, and QR integration for project links.
+- Implemented next-intl (VI/EN), responsive/PWA support, and downloadable executive CV section.
+Tech:
+- Next.js, TypeScript, next-intl, Framer Motion, qrcode.react, Tailwind CSS.
+Link:
+- https://cv-dev-portfolio.vercel.app
+
+6) S-Go (SEE) Super App | Role: Mobile App Developer
+Project scope:
+- All-in-one mobility and commerce ecosystem app.
+Key contributions:
+- Main responsibility in Food Delivery: menu discovery, cart, checkout, order tracking.
+- Built merchant onboarding, product creation, and realtime interaction flows between customer, driver, and restaurant.
+Tech:
+- React Native, TypeScript, Redux Toolkit, Firebase, Notifee, Goong Map API.
+Link:
+- https://skycorp.vn/
+
+7) SKY | Role: Mobile App Developer
+Project scope:
+- Multi-service app for ride-hailing, food, shopping, and delivery.
+Key contributions:
+- Built end-to-end booking/order/payment flows with realtime status tracking.
+- Integrated geolocation and push-notification features; supported production release stability.
+Tech:
+- React Native, TypeScript, Redux Toolkit, Firebase, Notifee, Goong Map API.
+Link:
+- https://skycorp.vn/
+
+8) IMS Product Suite (RPM, Carta, e-Member, Clear Fast) | Role: Mobile App Developer
+Key contributions:
+- Implemented and maintained commerce, event check-in, and home-care booking workflows.
+- Delivered wallet/payment/order/voucher/support modules across multiple domains.
 - Supported production releases and OTA patching in active user environments.
 Representative links:
-- SKY: https://skycorp.vn/
 - RPM: https://rpmvietnam.com
 
 EDUCATION & TRAINING
@@ -105,4 +147,4 @@ EDUCATION & TRAINING
 - CodeStar Academy | DevOps on AWS | Aug 2022 - Oct 2022
 
 ATS KEYWORDS
-React Native, Next.js, React, TypeScript, JavaScript, Frontend Engineer, Mobile App Developer, Redux Toolkit, Redux Saga, React Query, Firebase, REST API, AppCenter CodePush, Ant Design, Chart.js, Mapbox, MQTT, Performance Optimization, Product Delivery.
+React Native, Next.js, React, TypeScript, JavaScript, Frontend Engineer, Mobile App Developer, Redux Toolkit, Redux Saga, MobX, MobX-State-Tree, React Query, Firebase, REST API, AppCenter CodePush, Ant Design, Chart.js, Goong Map API, MQTT, Performance Optimization, Product Delivery.

@@ -1,0 +1,493 @@
+[
+  {
+    "id": "eboost-mobile-app",
+    "title": "EBOOST Charging Network App",
+    "customer": "Eboost (EVMobility)",
+    "technology": [
+      "React Native CLI",
+      "TypeScript",
+      "MobX",
+      "MobX-State-Tree",
+      "React Query",
+      "Firebase",
+      "MQTT",
+      "Notifee"
+    ],
+    "platform": [
+      "iOS",
+      "Android"
+    ],
+    "position": "Frontend Engineer",
+    "type": "Ứng dụng sạc xe điện",
+    "member": 2,
+    "linkDownload": [
+      {
+        "label": "App Download",
+        "link": "https://onelink.to/2uejj5"
+      }
+    ],
+    "description": "Ứng dụng mobile cho hệ sinh thái sạc xe điện EBOOST, hỗ trợ tìm trạm, theo dõi trạng thái sạc, điều khiển phiên sạc, nạp ví và quản lý lịch sử giao dịch.",
+    "responsibility": [
+      "Xây dựng các luồng người dùng chính: bản đồ trạm sạc, quét QR, chi tiết trụ sạc, bắt đầu/dừng sạc và theo dõi giao dịch.",
+      "Triển khai luồng nạp ví và thanh toán, kết nối các màn hình liên quan đến thẻ và ví điện tử.",
+      "Tích hợp thông báo và cập nhật trạng thái sạc theo thời gian thực.",
+      "Đảm bảo độ ổn định phát hành bằng cách xử lý lỗi production và tối ưu hiệu năng ứng dụng."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Luồng sạc",
+            "description": "Quét QR -> chọn đầu sạc -> điều khiển phiên sạc -> tính phí."
+          },
+          {
+            "title": "Luồng ví",
+            "description": "Nạp tiền, lịch sử thanh toán và chi tiết giao dịch."
+          },
+          {
+            "title": "Tài khoản",
+            "description": "Giới thiệu bạn bè, hồ sơ người dùng, cài đặt phương tiện và cấu hình tài khoản."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eboost-cms",
+    "title": "EBOOST CMS / Admin Portal",
+    "customer": "Eboost (EVMobility)",
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "React Query",
+      "Ant Design",
+      "Chart.js",
+      "Mapbox"
+    ],
+    "platform": [
+      "Web"
+    ],
+    "position": "Frontend Engineer",
+    "type": "Nền tảng CMS vận hành & quản trị",
+    "member": 1,
+    "linkDownload": "https://cms.eboost.vn",
+    "description": "Nền tảng CMS nội bộ phục vụ đội vận hành và kinh doanh để quản lý dữ liệu hệ sinh thái sạc, chiến dịch marketing, đối tác và giám sát kỹ thuật.",
+    "responsibility": [
+      "Xây dựng dashboard thống kê và phân tích cho số liệu vận hành, phiên sạc, giao dịch và hiệu suất hệ thống.",
+      "Triển khai các workflow hỗ trợ vận hành, quản lý chiến lược quảng cáo/khuyến mãi và giám sát hiệu quả chiến dịch.",
+      "Phát triển module gửi thông báo cho app và gửi email báo cáo số liệu định kỳ cho đối tác.",
+      "Xây tính năng quản lý địa điểm có trạm sạc, theo dõi trạng thái trạm/đầu sạc theo thời gian thực và hỗ trợ xử lý lỗi từ xa."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Thống kê & phân tích",
+            "description": "Dashboard tập trung số liệu vận hành, phiên sạc, giao dịch và các chỉ số phân tích phục vụ ra quyết định."
+          },
+          {
+            "title": "Hỗ trợ vận hành",
+            "description": "Tổ chức các workflow vận hành nội bộ, theo dõi tác vụ và phối hợp xử lý sự cố theo từng khu vực trạm."
+          },
+          {
+            "title": "Quản lý quảng cáo & khuyến mãi",
+            "description": "Cấu hình và theo dõi các chiến lược quảng cáo, chương trình khuyến mãi và hiệu quả triển khai theo chiến dịch."
+          },
+          {
+            "title": "Thông báo & báo cáo đối tác",
+            "description": "Gửi thông báo trực tiếp đến app người dùng và gửi email báo cáo số liệu định kỳ cho đối tác."
+          },
+          {
+            "title": "Quản lý địa điểm trạm sạc",
+            "description": "Quản lý danh sách địa điểm, trạm sạc, trạng thái trụ/đầu sạc và các thông tin vận hành liên quan."
+          },
+          {
+            "title": "Xử lý lỗi trạm từ xa",
+            "description": "Theo dõi cảnh báo và hỗ trợ xử lý các vấn đề kỹ thuật của trạm sạc từ xa mà không cần thao tác trực tiếp tại điểm trạm."
+          },
+          {
+            "title": "Giám sát realtime toàn hệ thống",
+            "description": "Quan sát theo thời gian thực toàn bộ phiên sạc đang diễn ra trên hệ thống để phản ứng nhanh khi có bất thường."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-go",
+    "title": "S-Go (SEE) Super App",
+    "customer": "IMS Solution",
+    "technology": [
+      "React Native CLI",
+      "TypeScript",
+      "Redux Toolkit",
+      "Firebase",
+      "Notifee",
+      "Goong Map API"
+    ],
+    "platform": [
+      "iOS",
+      "Android"
+    ],
+    "position": "Mobile App Developer",
+    "type": "Ứng dụng đa dịch vụ Mobility & Commerce",
+    "member": 3,
+    "linkDownload": "https://skycorp.vn/",
+    "description": "S-Go (SEE) là ứng dụng hệ sinh thái all-in-one do IMS phát triển, kết hợp gọi xe, giao hàng, đặt đồ ăn và mua sắm trong một trải nghiệm thống nhất.",
+    "responsibility": [
+      "Làm chính phần Food Delivery: luồng đặt món từ khám phá quán, chọn món, giỏ hàng, đặt đơn và theo dõi trạng thái đơn.",
+      "Triển khai luồng đăng ký người bán (merchant onboarding) và quản lý thông tin cửa hàng trong ứng dụng.",
+      "Xây dựng module quản lý sản phẩm cho quán: tạo sản phẩm, cập nhật giá, trạng thái bán và nội dung hiển thị.",
+      "Phát triển luồng tương tác giữa tài xế, khách hàng và quán ăn theo thời gian thực (nhận đơn, chuẩn bị, lấy hàng, giao hàng)."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Một ứng dụng - nhiều dịch vụ",
+            "description": "Nền tảng hợp nhất cho di chuyển, ẩm thực, mua sắm và logistics."
+          },
+          {
+            "title": "Vận hành realtime",
+            "description": "Theo dõi trạng thái chuyến đi/đơn hàng trực tiếp bằng bản đồ và dữ liệu vị trí."
+          },
+          {
+            "title": "Mở rộng quy mô",
+            "description": "Kiến trúc sẵn sàng cho mở rộng dịch vụ và xử lý lưu lượng lớn."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sky",
+    "title": "SKY",
+    "customer": "IMS Solution",
+    "technology": [
+      "React Native CLI",
+      "TypeScript",
+      "Redux Toolkit",
+      "Firebase",
+      "Notifee",
+      "Goong Map API"
+    ],
+    "platform": [
+      "iOS",
+      "Android"
+    ],
+    "position": "Mobile App Developer",
+    "type": "Ứng dụng xe công nghệ / Food / Mua sắm / Giao hàng",
+    "member": 3,
+    "linkDownload": "https://skycorp.vn/",
+    "description": "Sky là ứng dụng đa dịch vụ do IMS phát triển, tích hợp đặt xe công nghệ, giao đồ ăn, mua sắm trực tuyến và giao hàng trong một nền tảng duy nhất. Ứng dụng tập trung vào trải nghiệm thân thiện, giá minh bạch, theo dõi realtime và vận hành ổn định trên iOS/Android.",
+    "responsibility": [
+      "Phát triển các luồng chính cho hệ sinh thái Sky gồm đặt xe, food, mua sắm và giao hàng.",
+      "Xây dựng quy trình đặt dịch vụ end-to-end: tạo đơn, theo dõi trạng thái realtime, thanh toán và lịch sử giao dịch.",
+      "Tích hợp các tính năng hỗ trợ vận hành như định vị, kết nối tài xế gần nhất, thông báo đẩy và xác minh người dùng.",
+      "Tối ưu UI/UX, sửa lỗi production và đảm bảo chất lượng phát hành trên cả iOS và Android."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Sky Ride - Xe công nghệ",
+            "description": "Đặt xe nhanh chóng, an toàn, giá cả minh bạch. Hệ thống định vị thông minh, kết nối tài xế gần nhất. Hỗ trợ xe máy, ô tô và giao hàng nhanh."
+          },
+          {
+            "title": "Sky Delivery - Giao hàng",
+            "description": "Giao hàng siêu tốc nội thành và liên tỉnh với chi phí hợp lý, theo dõi trạng thái 24/7, hỗ trợ shop online, nhà hàng và doanh nghiệp."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rpm",
+    "title": "RPM Vietnam",
+    "customer": "IMS Solution",
+    "technology": [
+      "React Native CLI",
+      "TypeScript",
+      "Redux Toolkit",
+      "Firebase",
+      "AppCenter CodePush"
+    ],
+    "platform": [
+      "iOS",
+      "Android",
+      "Web"
+    ],
+    "position": "Mobile App Developer",
+    "type": "Ứng dụng thương mại điện tử",
+    "member": 1,
+    "linkDownload": "https://rpmkixx.page.link/download",
+    "description": "Ứng dụng thương mại điện tử phục vụ khám phá sản phẩm, đặt hàng, quản lý voucher, hóa đơn, trung tâm hỗ trợ và các trải nghiệm loyalty.",
+    "responsibility": [
+      "Làm chủ các luồng mua sắm chính: danh sách/chi tiết sản phẩm, giỏ hàng, xác nhận đơn và lịch sử đơn.",
+      "Phát triển tiện ích tài khoản: thông tin cá nhân, điểm thưởng, voucher, thông báo và cài đặt.",
+      "Tích hợp dịch vụ thông báo đẩy và các luồng xác thực người dùng.",
+      "Vận hành pipeline release Android/iOS và cập nhật OTA qua CodePush."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Nền tảng mua sắm",
+            "description": "Danh mục, chi tiết sản phẩm, giỏ hàng, thanh toán và lịch sử đơn hàng."
+          },
+          {
+            "title": "Sau mua hàng",
+            "description": "Hóa đơn, công nợ, đánh giá và trung tâm hỗ trợ."
+          },
+          {
+            "title": "Tăng tương tác",
+            "description": "Voucher, điểm thưởng và thông báo."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carta",
+    "title": "Carta",
+    "customer": "IMS Solution",
+    "technology": [
+      "React Native CLI",
+      "JavaScript/TypeScript",
+      "Redux-Saga",
+      "Firebase",
+      "i18next"
+    ],
+    "platform": [
+      "iOS",
+      "Android"
+    ],
+    "position": "Mobile App Developer",
+    "type": "Ứng dụng marketplace",
+    "member": 3,
+    "description": "Dự án marketplace với đầy đủ luồng mua sắm, flash sale, vòng đời đơn hàng, trung tâm hỗ trợ và hỗ trợ đa ngôn ngữ.",
+    "responsibility": [
+      "Phát triển các màn hình thương mại cho người dùng: danh mục, sản phẩm, giỏ hàng, thanh toán và chi tiết đơn.",
+      "Triển khai luồng voucher/khuyến mãi, bao gồm các kịch bản flash sale.",
+      "Xây dựng trải nghiệm tra cứu đơn hàng và ticket hỗ trợ khách hàng.",
+      "Đóng góp vào UI đa ngôn ngữ và các luồng xác thực/OTP."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Luồng mua sắm",
+            "description": "Tìm kiếm, giỏ hàng, checkout, phương thức thanh toán và xác nhận đơn."
+          },
+          {
+            "title": "Khuyến mãi",
+            "description": "Flash sale, voucher, shock deal và các trải nghiệm giảm giá."
+          },
+          {
+            "title": "Hỗ trợ khách hàng",
+            "description": "Theo dõi yêu cầu hỗ trợ và tương tác trực tiếp trong ứng dụng."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e-member",
+    "title": "App Check-in Sự Kiện (e-Member)",
+    "customer": "IMS Solution",
+    "technology": [
+      "React Native CLI",
+      "JavaScript/TypeScript",
+      "Redux-Saga",
+      "Firebase",
+      "React Hook Form"
+    ],
+    "platform": [
+      "iOS",
+      "Android"
+    ],
+    "position": "Mobile App Developer",
+    "type": "Nền tảng Check-in sự kiện & E-ticket",
+    "member": 2,
+    "description": "Ứng dụng check-in sự kiện chuyên nghiệp với xác thực QR code, quản lý khách mời, xử lý e-ticket và báo cáo tham dự theo thời gian thực.",
+    "responsibility": [
+      "Xây dựng luồng đăng ký sự kiện, thư mời và quản lý người tham dự cho ban tổ chức và khách mời.",
+      "Triển khai xác thực check-in bằng QR, chống quét trùng và cập nhật trạng thái check-in realtime.",
+      "Phát triển quy trình e-ticket, phân nhóm khách mời và thông báo để tối ưu vận hành tại sự kiện.",
+      "Đảm bảo ổn định release và xử lý lỗi production trong các đợt sự kiện thực tế."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Check-in QR nhanh",
+            "description": "Khách mời hoàn tất check-in trong vài giây với mã QR định danh."
+          },
+          {
+            "title": "Vận hành realtime",
+            "description": "Dashboard trực quan theo dõi số lượng check-in, trạng thái và báo cáo sự kiện."
+          },
+          {
+            "title": "Bảo mật & kiểm soát",
+            "description": "Phân quyền theo vai trò, bảo vệ dữ liệu khách mời và truy vết thao tác."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hong-phuc",
+    "title": "Clear Fast (Hong Phuc)",
+    "customer": "IMS Solution",
+    "technology": [
+      "React Native CLI",
+      "JavaScript/TypeScript",
+      "Firebase",
+      "Agora",
+      "Redux-Saga"
+    ],
+    "platform": [
+      "iOS",
+      "Android"
+    ],
+    "position": "Mobile App Developer",
+    "type": "Ứng dụng đặt dịch vụ giúp việc & chăm sóc",
+    "member": 3,
+    "description": "Clear Fast là ứng dụng đặt dịch vụ giúp việc, chăm sóc người cao tuổi và người bệnh với hình thức đặt linh hoạt và chi phí minh bạch.",
+    "responsibility": [
+      "Triển khai luồng đặt dịch vụ theo giờ, theo ngày và dài hạn.",
+      "Xây dựng màn hình hồ sơ nhân sự và chọn nhân viên yêu thích với thông tin giá rõ ràng.",
+      "Phát triển các luồng thanh toán, khuyến mãi và theo dõi đơn dịch vụ.",
+      "Cải thiện trải nghiệm tài khoản/hỗ trợ và xử lý lỗi production."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Đặt lịch linh hoạt",
+            "description": "Đặt dịch vụ theo giờ, theo ngày hoặc dài hạn theo nhu cầu gia đình."
+          },
+          {
+            "title": "Nhân sự đáng tin cậy",
+            "description": "Hiển thị hồ sơ nhân sự đã đào tạo với thông tin minh bạch."
+          },
+          {
+            "title": "Minh bạch & an toàn",
+            "description": "Giá dịch vụ rõ ràng, thanh toán an toàn và hỗ trợ khách hàng nhanh."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kinis",
+    "title": "Kinis.ai Web Platform (Freelance)",
+    "customer": "Kinis",
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Ant Design",
+      "Mongoose",
+      "JWT",
+      "React Query"
+    ],
+    "platform": [
+      "Web"
+    ],
+    "position": "Frontend Developer (Freelance)",
+    "type": "Landing + Investor/Partnership + Admin",
+    "member": 2,
+    "linkDownload": "https://kinis.ai",
+    "description": "Dự án freelance cho Kinis.ai, bao gồm hệ thống landing page public, luồng chuyển đổi investor/partnership và công cụ admin quản lý lead.",
+    "responsibility": [
+      "Xây dựng và duy trì các trang trọng tâm: Home, About, Technology, Partnership, Investors.",
+      "Triển khai luồng form liên hệ và xử lý dữ liệu lead cho investor/partnership/subscriber.",
+      "Phát triển màn hình đăng nhập admin và dashboard quản lý liên hệ nội bộ.",
+      "Tích hợp luồng tương tác dạng chatbot qua API backend và tối ưu responsive UI."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Growth pages",
+            "description": "Các trang marketing/storytelling phục vụ mục tiêu partnership và gọi vốn."
+          },
+          {
+            "title": "Lead pipeline",
+            "description": "Thu thập lead, phân loại contact và xử lý qua luồng admin."
+          },
+          {
+            "title": "Tương tác hỗ trợ",
+            "description": "Luồng chat web kết nối API backend để hỗ trợ khách truy cập."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gcflow",
+    "title": "GC Flow Admin",
+    "customer": "Kinh doanh cá nhân",
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "Ant Design",
+      "MongoDB",
+      "Mongoose",
+      "next-intl",
+      "Chart.js"
+    ],
+    "platform": [
+      "Web",
+      "PWA"
+    ],
+    "position": "Full-Stack Developer (Dự án cá nhân)",
+    "type": "Nền tảng vận hành kinh doanh cá nhân",
+    "member": 1,
+    "description": "GC Flow là nền tảng quản trị phục vụ kinh doanh cá nhân, hỗ trợ quản lý sản phẩm theo kg, profile giá, quy trình duyệt đơn và theo dõi lợi nhuận theo từng đơn hàng.",
+    "responsibility": [
+      "Đây là dự án đầu tiên mình triển khai theo hướng API-first 100%, hoàn thành MVP trong 3 ngày.",
+      "Thiết kế và triển khai trọn vẹn luồng vận hành: quản lý sản phẩm, version bảng giá, lên đơn và duyệt đơn bởi admin.",
+      "Xây dựng logic giá theo profile COST/SALE và cơ chế snapshot giá để đảm bảo lịch sử đơn hàng luôn chính xác.",
+      "Phát triển module quản lý seller/customer, phân quyền tài khoản, trạng thái kích hoạt và xác thực đăng nhập an toàn.",
+      "Xây dashboard phân tích và công cụ export báo cáo giúp theo dõi doanh thu, biên lợi nhuận và hiệu suất vận hành."
+    ],
+    "features": [
+      {
+        "featureGroup": "Điểm nổi bật",
+        "featureList": [
+          {
+            "title": "Kiến trúc profile giá",
+            "description": "Tách riêng COST và SALE profile, hỗ trợ versioning và clone nhanh để điều chỉnh giá linh hoạt."
+          },
+          {
+            "title": "Quy trình duyệt đơn",
+            "description": "Đơn do seller tạo cần admin duyệt, có kiểm tra request discount trước khi chuyển xác nhận."
+          },
+          {
+            "title": "Khách hàng tự order",
+            "description": "Khách hàng có thể tự tạo đơn qua link công khai, gửi đơn trực tiếp vào hệ thống để seller/admin xử lý."
+          },
+          {
+            "title": "Vận hành nhiều seller",
+            "description": "Admin quản lý seller/customer, reset mật khẩu và bật/tắt quyền truy cập theo nhu cầu vận hành."
+          },
+          {
+            "title": "Phân tích kinh doanh",
+            "description": "Dashboard và báo cáo export theo dõi doanh thu, lợi nhuận, trạng thái đơn và xu hướng theo thời gian."
+          }
+        ]
+      }
+    ]
+  }
+]

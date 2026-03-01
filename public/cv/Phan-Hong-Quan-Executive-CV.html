@@ -76,7 +76,7 @@
         height: 86px;
         border-radius: 999px;
         overflow: hidden;
-        border: 1px solid var(--soft);
+        border: none;
         background: #fff;
         flex: 0 0 86px;
       }
@@ -209,6 +209,39 @@
         color: var(--muted);
       }
 
+      .interest-grid {
+        margin-top: 4px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px 5px;
+      }
+
+      .interest-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid var(--soft);
+        border-radius: 8px;
+        padding: 3px 5px;
+        background: #fffaf3;
+      }
+
+      .interest-icon {
+        width: 13px;
+        height: 13px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .interest-text {
+        font-size: 8.8px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
       .exp-title {
         margin: 0 0 7px;
         font-size: 11.1px;
@@ -222,7 +255,7 @@
         position: relative;
         margin-left: 2px;
         padding-left: 18px;
-        border-left: 2px solid #b08a66;
+        border-left: 1.5px solid #b08a66;
       }
 
       .exp-card {
@@ -264,7 +297,7 @@
 
       .exp-company {
         margin: 0;
-        font-size: 13px;
+        font-size: 11px;
         font-weight: 800;
       }
 
@@ -294,75 +327,90 @@
       }
 
       .project-page {
-        padding: 10px 5px;
+        padding: 8px 4px;
       }
 
       .project-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 6px;
       }
 
       .project-card {
         border: 1px solid var(--soft);
         border-radius: 10px;
-        padding: 9px 10px;
+        padding: 7px 9px;
         background: #fff;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        -webkit-region-break-inside: avoid;
+        overflow: hidden;
+      }
+
+      @media print {
+        .project-grid {
+          display: block;
+        }
+
+        .project-card {
+          margin-bottom: 6px;
+        }
       }
 
       .project-head {
         display: flex;
         justify-content: space-between;
-        gap: 8px;
+        gap: 6px;
       }
 
       .project-name {
         margin: 0;
-        font-size: 12.8px;
+        font-size: 12px;
         font-weight: 800;
       }
 
       .project-role {
         margin-top: 1px;
-        font-size: 10.4px;
+        font-size: 9.9px;
         color: var(--muted);
       }
 
       .project-meta {
-        font-size: 10px;
+        font-size: 9.6px;
         color: var(--accent);
         font-weight: 700;
         white-space: nowrap;
       }
 
       .project-scope {
-        margin-top: 5px;
-        font-size: 10.8px;
-        line-height: 1.42;
+        margin-top: 3px;
+        font-size: 10.1px;
+        line-height: 1.34;
         color: var(--ink);
       }
 
       .mini-list {
-        margin: 5px 0 0;
+        margin: 3px 0 0;
         padding-left: 14px;
       }
 
       .mini-list li {
-        margin-bottom: 1px;
-        font-size: 10.5px;
-        line-height: 1.35;
+        margin-bottom: 0;
+        font-size: 9.9px;
+        line-height: 1.28;
         color: var(--ink);
       }
 
       .inline-tech {
-        margin-top: 4px;
-        font-size: 10.2px;
+        margin-top: 2px;
+        font-size: 9.8px;
         color: var(--muted);
       }
 
       .inline-link {
-        margin-top: 3px;
-        font-size: 9.8px;
+        margin-top: 1px;
+        font-size: 9.2px;
+        line-height: 1.24;
         color: var(--accent-2);
         word-break: break-all;
       }
@@ -409,7 +457,7 @@
                 <div class="metric-label">Delivered products (mobile + web)</div>
               </div>
               <div class="metric">
-                <div class="metric-value">8</div>
+                <div class="metric-value">6</div>
                 <div class="metric-label">Apps delivered in IMS product suite</div>
               </div>
               <div class="metric">
@@ -427,7 +475,7 @@
             <h2 class="title">Core Stack</h2>
             <div class="stack-group">
               <div class="stack-label">Mobile</div>
-              <div class="stack-text">React Native CLI, TypeScript, React Navigation, Redux Toolkit/Saga, React Query, Firebase, Notifee, MQTT, AppCenter CodePush.</div>
+              <div class="stack-text">React Native CLI, TypeScript, React Navigation, Redux Toolkit, Redux-Saga, MobX, MobX-State-Tree, React Query, Firebase, Notifee, MQTT, Goong Map API, AppCenter CodePush.</div>
             </div>
             <div class="stack-group">
               <div class="stack-label">Web</div>
@@ -443,9 +491,10 @@
             <h2 class="title">ATS Keywords</h2>
             <div class="tag-wrap">
               <span class="tag">React Native</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span>
-              <span class="tag">JavaScript</span><span class="tag">Redux Toolkit</span><span class="tag">Redux Saga</span><span class="tag">React Query</span>
-              <span class="tag">Firebase</span><span class="tag">MQTT</span><span class="tag">REST API</span><span class="tag">AppCenter CodePush</span>
-              <span class="tag">Ant Design</span><span class="tag">Chart.js</span><span class="tag">Mapbox</span>
+              <span class="tag">JavaScript</span><span class="tag">Redux Toolkit</span><span class="tag">Redux Saga</span><span class="tag">MobX</span>
+              <span class="tag">MobX-State-Tree</span><span class="tag">React Query</span><span class="tag">Firebase</span><span class="tag">MQTT</span>
+              <span class="tag">Goong Map API</span><span class="tag">REST API</span><span class="tag">AppCenter CodePush</span><span class="tag">Ant Design</span>
+              <span class="tag">Chart.js</span><span class="tag">Mapbox</span>
             </div>
           </section>
 
@@ -464,6 +513,28 @@
               <p class="edu-sub">DevOps on AWS · Aug 2022 - Oct 2022</p>
             </div>
           </section>
+
+          <section class="section">
+            <h2 class="title">Personal Interests</h2>
+            <div class="interest-grid">
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">🎮</span>
+                <span class="interest-text">Gaming</span>
+              </div>
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">♟</span>
+                <span class="interest-text">Chess</span>
+              </div>
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">🏋</span>
+                <span class="interest-text">Gym</span>
+              </div>
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">&lt;/&gt;</span>
+                <span class="interest-text">Coding</span>
+              </div>
+            </div>
+          </section>
         </aside>
 
         <section class="right-col">
@@ -480,9 +551,10 @@
                 <div class="exp-time">Aug 2024 - Present</div>
               </div>
               <ul class="exp-list">
-                <li>Owned frontend delivery for EBOOST Charging Network App (mobile) and EBOOST CMS/Admin Portal (web).</li>
+                <li>Owned delivery for EBOOST Charging Network App (mobile) and EBOOST CMS/Admin Portal (web).</li>
                 <li>Built EV charging app flows: map discovery, QR scan, outlet details, charging sessions, wallet top-up, transaction history.</li>
-                <li>Developed CMS modules for operations, marketing, partnerships, and technical monitoring workflows.</li>
+                <li>Single-handedly delivered CMS modules for analytics, operations support, promotion strategy, app notifications, and partner report emails.</li>
+                <li>Built charging-location/station status management with realtime session monitoring and remote issue handling workflows.</li>
                 <li>Improved release reliability through production issue fixes and rollout standardization.</li>
               </ul>
             </article>
@@ -514,9 +586,9 @@
                 <div class="exp-time">Mar 2022 - Aug 2024</div>
               </div>
               <ul class="exp-list">
-                <li>Developed and maintained 5 production apps: SKY, RPM, Carta, e-Member, Hong Phuc.</li>
-                <li>Built key modules across booking, order, wallet, payment, voucher, and support workflows.</li>
-                <li>Integrated Firebase, maps/geolocation, deep links, notifications, and payment-related features.</li>
+                <li>Developed and maintained 6 production apps: S-Go (SEE), SKY, RPM, Carta, e-Member, and Clear Fast (Hong Phuc).</li>
+                <li>Built key modules across ride/food/order flows, merchant onboarding, wallet/payment, voucher, and support workflows.</li>
+                <li>Integrated Firebase, Goong map/geolocation, deep links, notifications, and payment-related features.</li>
                 <li>Supported full release lifecycle: features, bug fixing, optimization, and OTA updates.</li>
               </ul>
             </article>
@@ -542,7 +614,7 @@
 
     <main class="page">
       <section class="project-page">
-        <h2 class="title" style="margin-bottom: 10px;">Project Details by Company (Recruiter Review)</h2>
+        <h2 class="title" style="margin-bottom: 10px;">Project Highlights</h2>
 
         <div class="project-grid">
           <article class="project-card">
@@ -558,7 +630,7 @@
               <li>Implemented QR scan -> connector selection -> charging session -> billing workflow.</li>
               <li>Built top-up, payment history, and realtime charging status interactions.</li>
             </ul>
-            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, React Query, Firebase, MQTT, Notifee.</div>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, MobX, MobX-State-Tree, React Query, Firebase, MQTT, Notifee.</div>
             <div class="inline-link">https://onelink.to/2uejj5</div>
           </article>
 
@@ -570,10 +642,10 @@
               </div>
               <div class="project-meta">2024 - Present</div>
             </div>
-            <div class="project-scope">Internal CMS platform for operations, marketing, partnerships, asset management, and technical monitoring.</div>
+            <div class="project-scope">Internal CMS platform for analytics, operations support, promotions, partner reporting, and charging network monitoring.</div>
             <ul class="mini-list">
-              <li>Built modules for accounts, transactions, charging assets, promotions, and dashboard analytics.</li>
-              <li>Developed reusable component patterns to accelerate feature delivery cycles.</li>
+              <li>Single frontend owner: delivered app notifications, partner report emails, and campaign management workflows.</li>
+              <li>Built realtime charging session monitoring, charging-location status pages, and remote station issue handling flows.</li>
             </ul>
             <div class="inline-tech"><strong>Tech:</strong> Next.js, TypeScript, React Query, Ant Design, Chart.js, Mapbox.</div>
             <div class="inline-link">https://cms.eboost.vn</div>
@@ -599,17 +671,68 @@
           <article class="project-card">
             <div class="project-head">
               <div>
-                <p class="project-name">SKY Super App</p>
+                <p class="project-name">GC Flow Admin</p>
+                <div class="project-role">Role: Full-Stack Developer · Personal Business Project</div>
+              </div>
+              <div class="project-meta">2026 - Present</div>
+            </div>
+            <div class="project-scope">Internal admin platform for personal business operations: price profiles, order approval, seller/customer management, and profit analytics.</div>
+            <ul class="mini-list">
+              <li>First 100% API-first project; delivered MVP in 3 days from API integration to UI workflows.</li>
+              <li>Implemented customer self-order via public link, admin approval flow, and revenue/profit reporting dashboard.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> Next.js, TypeScript, Ant Design, MongoDB, Mongoose, Chart.js, next-intl.</div>
+            <div class="inline-link">Private project · Demo on request</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">CV Dev Portfolio Website</p>
+                <div class="project-role">Role: Frontend Engineer · Personal Project</div>
+              </div>
+              <div class="project-meta">2026 - Present</div>
+            </div>
+            <div class="project-scope">Personal portfolio website to present projects by company with bilingual content, gallery-first storytelling, and recruiter-focused contact flow.</div>
+            <ul class="mini-list">
+              <li>Built project showcase by company with modal image viewer, slide navigation, and QR per project link.</li>
+              <li>Implemented next-intl (VI/EN), responsive PWA behavior, and integrated downloadable executive CV experience.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> Next.js, TypeScript, next-intl, Framer Motion, qrcode.react, Tailwind CSS.</div>
+            <div class="inline-link">https://cv-dev-portfolio.vercel.app</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">S-Go (SEE) Super App</p>
                 <div class="project-role">Role: Mobile App Developer · Company: IMS Solution</div>
               </div>
               <div class="project-meta">2022 - 2024</div>
             </div>
-            <div class="project-scope">Multi-service consumer app covering ride booking, delivery, food, shopping, wallet, and membership.</div>
+            <div class="project-scope">All-in-one mobility and commerce app; focused contribution on Food Delivery and merchant operations.</div>
             <ul class="mini-list">
-              <li>Built booking, delivery, profile, and wallet flows in core user journeys.</li>
-              <li>Implemented top-up/payment history plus push-notification and deep-link flows.</li>
+              <li>Owned food ordering flow: discovery -> menu -> cart -> order -> live status updates.</li>
+              <li>Built merchant onboarding and product management for interactions between customer, driver, and restaurant.</li>
             </ul>
-            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, Redux Toolkit, Firebase, Notifee.</div>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, Redux Toolkit, Firebase, Notifee, Goong Map API.</div>
+            <div class="inline-link">https://skycorp.vn</div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <div>
+                <p class="project-name">SKY</p>
+                <div class="project-role">Role: Mobile App Developer · Company: IMS Solution</div>
+              </div>
+              <div class="project-meta">2022 - 2024</div>
+            </div>
+            <div class="project-scope">Multi-service app for ride-hailing, food delivery, shopping, and logistics in one consumer experience.</div>
+            <ul class="mini-list">
+              <li>Built end-to-end user journeys for ride booking, service ordering, payment, and realtime order/trip tracking.</li>
+              <li>Implemented location-based flows, push notifications, and release-stability fixes on iOS and Android.</li>
+            </ul>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, TypeScript, Redux Toolkit, Firebase, Notifee, Goong Map API.</div>
             <div class="inline-link">https://skycorp.vn</div>
           </article>
 
@@ -621,14 +744,15 @@
               </div>
               <div class="project-meta">2022 - 2024</div>
             </div>
-            <div class="project-scope">Marketplace mobile app with shopping, promotions, order lifecycle, and multilingual user support.</div>
+            <div class="project-scope">Marketplace mobile app with shopping, promotions, flash-sale campaigns, order lifecycle, and multilingual support.</div>
             <ul class="mini-list">
-              <li>Built commerce flow: category, product detail, cart, payment, and order tracking.</li>
-              <li>Implemented flash-sale vouchers and support-center experiences for end users.</li>
+              <li>Implemented product discovery, cart/checkout, payment, and order tracking workflows.</li>
+              <li>Built promo/voucher flows and customer support interaction within the app.</li>
             </ul>
-            <div class="inline-tech"><strong>Tech:</strong> React Native, JavaScript/TypeScript, Redux, Firebase, i18next.</div>
+            <div class="inline-tech"><strong>Tech:</strong> React Native, JavaScript/TypeScript, Redux-Saga, Firebase, i18next.</div>
             <div class="inline-link">https://apps.apple.com/app/id1661596013</div>
           </article>
+
         </div>
       </section>
     </main>

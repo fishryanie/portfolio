@@ -1,5 +1,8 @@
 import type { AppLocale } from "@/i18n/routing";
-import sourceProjects from "./projects.json";
+import fs from "node:fs";
+import path from "node:path";
+import sourceProjectsEn from "./projects.json";
+import sourceProjectsVi from "./projects.vi.json";
 
 type LocalizedText = Record<AppLocale, string>;
 
@@ -57,6 +60,7 @@ type ProjectMeta = {
   period: LocalizedText;
   image: string;
   galleryImages?: string[];
+  syncGalleryWithFolder?: boolean;
   source: string;
   scope: LocalizedText;
   extraLinks?: ProjectLink[];
@@ -98,6 +102,85 @@ type HeroStat = {
   label: string;
   value: string;
 };
+
+const PUBLIC_DIR = path.join(process.cwd(), "public");
+const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"]);
+const fileNameSorter = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: "base",
+});
+
+function normalizePublicAssetPath(assetPath: string): string {
+  return assetPath.replace(/\\/g, "/");
+}
+
+function toAbsolutePublicPath(publicAssetPath: string): string {
+  const normalized = normalizePublicAssetPath(publicAssetPath).replace(/^\/+/, "");
+  return path.join(PUBLIC_DIR, normalized);
+}
+
+function isExistingImageAsset(publicAssetPath: string): boolean {
+  const extension = path.extname(publicAssetPath).toLowerCase();
+  if (!IMAGE_EXTENSIONS.has(extension)) {
+    return false;
+  }
+
+  return fs.existsSync(toAbsolutePublicPath(publicAssetPath));
+}
+
+function readImageAssetsInDirectory(publicDirectoryPath: string): string[] {
+  const normalizedDir = normalizePublicAssetPath(publicDirectoryPath).replace(/\/+$/, "");
+  const absoluteDirPath = toAbsolutePublicPath(normalizedDir);
+
+  if (!fs.existsSync(absoluteDirPath)) {
+    return [];
+  }
+
+  const entries = fs.readdirSync(absoluteDirPath, { withFileTypes: true });
+
+  return entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((fileName) => IMAGE_EXTENSIONS.has(path.extname(fileName).toLowerCase()))
+    .sort((a, b) => fileNameSorter.compare(a, b))
+    .map((fileName) => `${normalizedDir}/${fileName}`);
+}
+
+function resolveGalleryImages(
+  coverImage: string,
+  curatedGalleryImages: string[] = [],
+  syncGalleryWithFolder = true,
+): string[] {
+  const normalizedCover = normalizePublicAssetPath(coverImage);
+
+  const curated = curatedGalleryImages
+    .map((item) => normalizePublicAssetPath(item))
+    .filter((item) => item !== normalizedCover)
+    .filter((item) => isExistingImageAsset(item));
+
+  if (!syncGalleryWithFolder) {
+    return curated;
+  }
+
+  const folderPath = path.posix.dirname(normalizedCover);
+
+  const autoDiscovered = readImageAssetsInDirectory(folderPath).filter(
+    (item) => item !== normalizedCover,
+  );
+
+  const merged = [...curated, ...autoDiscovered];
+  const seen = new Set<string>();
+  const output: string[] = [];
+
+  for (const item of merged) {
+    if (!seen.has(item)) {
+      seen.add(item);
+      output.push(item);
+    }
+  }
+
+  return output;
+}
 
 function sameLocale(text: string): LocalizedText {
   return { vi: text, en: text };
@@ -149,7 +232,7 @@ const profileContent: Record<
   vi: {
     role: "Frontend Engineer (React Native / React / Next.js)",
     headline:
-      "Xây dựng sản phẩm thực chiến cho mobile và web admin, tập trung vào độ ổn định phát hành, hiệu năng và khả năng mở rộng theo business growth.",
+      "Mình làm frontend cho mobile và web admin, ưu tiên sản phẩm chạy ổn định khi release, mượt khi dùng và dễ mở rộng khi business tăng trưởng.",
     location: "Gò Vấp, Hồ Chí Minh, Việt Nam",
   },
   en: {
@@ -172,12 +255,12 @@ const companyGroupContent: CompanyGroupContent[] = [
     },
     highlights: {
       vi: [
-        "Làm chủ delivery cho 2 sản phẩm chính: app người dùng và hệ thống CMS/admin.",
+        "Phụ trách chính frontend cho 2 sản phẩm cốt lõi: app người dùng và hệ thống CMS/admin.",
         "Tích hợp workflow realtime (MQTT, notifications, charging status).",
         "Xây nền tảng quản trị dữ liệu lớn với Next.js, Ant Design và React Query.",
       ],
       en: [
-        "Owned delivery for two core products: consumer app and CMS/admin platform.",
+        "Led frontend delivery for two core products: consumer app and CMS/admin platform.",
         "Implemented realtime workflows with MQTT, notifications, and charging status updates.",
         "Built scalable data-management modules with Next.js, Ant Design, and React Query.",
       ],
@@ -293,6 +376,23 @@ const projectMeta: Record<string, ProjectMeta> = {
       en: "Landing + investor/partnership + admin + ecosystem expansion",
     },
   },
+  gcflow: {
+    companyId: "freelance",
+    period: {
+      vi: "2026 (MVP hoàn thành trong 3 ngày)",
+      en: "2026 (MVP completed in 3 days)",
+    },
+    image: "/images/gcflow/gcflow-overview.svg",
+    source: "Desktop/gcflow",
+    scope: {
+      vi: "Nền tảng quản trị phục vụ kinh doanh cá nhân",
+      en: "Personal business operations admin platform",
+    },
+    note: {
+      vi: "Dự án cá nhân phục vụ vận hành kinh doanh, có thể demo thêm khi cần.",
+      en: "Personal business project; deeper demo can be provided on request.",
+    },
+  },
   "s-go": {
     companyId: "ims",
     period: sameLocale("2022 - 2024"),
@@ -357,6 +457,7 @@ const projectMeta: Record<string, ProjectMeta> = {
     companyId: "ims",
     period: sameLocale("2022 - 2024"),
     image: "/images/carta/cartas.png",
+    syncGalleryWithFolder: true,
     galleryImages: [
       "/images/carta/splash-screen.png",
       "/images/carta/List.jpg",
@@ -408,6 +509,7 @@ const projectMeta: Record<string, ProjectMeta> = {
     companyId: "ims",
     period: sameLocale("2022 - 2024"),
     image: "/images/hong-phuc/hongphuc.png",
+    syncGalleryWithFolder: true,
     galleryImages: [
       "/images/hong-phuc/dang-ky-dich-vu.png",
       "/images/hong-phuc/dich-vu-moi.png",
@@ -461,7 +563,12 @@ function toPrimaryLink(links: ProjectLink[]): ProjectLink[] {
 }
 
 function buildProjects(locale: AppLocale): PortfolioProject[] {
-  return (sourceProjects as RawProject[])
+  const localizedProjects =
+    locale === "vi"
+      ? (sourceProjectsVi as RawProject[])
+      : (sourceProjectsEn as RawProject[]);
+
+  return localizedProjects
     .map((project) => {
       const meta = projectMeta[project.id];
 
@@ -483,7 +590,11 @@ function buildProjects(locale: AppLocale): PortfolioProject[] {
         companyId: meta.companyId,
         period: meta.period[locale],
         image: meta.image,
-        galleryImages: meta.galleryImages ?? [],
+        galleryImages: resolveGalleryImages(
+          meta.image,
+          meta.galleryImages,
+          meta.syncGalleryWithFolder ?? true,
+        ),
         source: meta.source,
         scope: meta.scope[locale],
         note: meta.note?.[locale],
@@ -504,9 +615,21 @@ function buildProjects(locale: AppLocale): PortfolioProject[] {
 }
 
 export function getProfile(locale: AppLocale): Profile {
+  const localizedContactLabel: Partial<Record<ContactItem["label"], string>> =
+    locale === "vi"
+      ? {
+          Phone: "Điện thoại",
+          Website: "Trang web",
+        }
+      : {};
+
   return {
     ...sharedProfile,
     ...profileContent[locale],
+    contacts: sharedProfile.contacts.map((item) => ({
+      ...item,
+      label: localizedContactLabel[item.label] ?? item.label,
+    })),
   };
 }
 

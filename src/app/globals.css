@@ -103,3 +103,12 @@ canvas {
   background: rgba(235, 91, 42, 0.25);
   color: var(--ink);
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

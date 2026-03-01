@@ -3,7 +3,7 @@
     "id": "eboost-mobile-app",
     "title": "EBOOST Charging Network App",
     "customer": "Eboost (EVMobility)",
-    "technology": ["React Native CLI", "TypeScript", "React Query", "Firebase", "MQTT", "Notifee"],
+    "technology": ["React Native CLI", "TypeScript", "MobX", "MobX-State-Tree", "React Query", "Firebase", "MQTT", "Notifee"],
     "platform": ["iOS", "Android"],
     "position": "Frontend Engineer",
     "type": "EV Charging Mobile App",
@@ -39,18 +39,22 @@
     "linkDownload": "https://cms.eboost.vn",
     "description": "Internal CMS platform used by operations and business teams to manage charging ecosystem data, marketing campaigns, partnerships, and technical monitoring.",
     "responsibility": [
-      "Developed admin modules for operations, marketing, partnerships, and technical teams.",
-      "Built dashboards and data tables for transactions, chargers, tariffs, and realtime statuses.",
-      "Implemented scalable UI patterns with reusable Ant Design components.",
-      "Collaborated with backend and product teams to ship internal workflows quickly."
+      "Built statistics and analytics dashboards for operations metrics, charging sessions, transactions, and system performance.",
+      "Implemented operations-support workflows and managed advertising/promotion strategy modules with campaign performance tracking.",
+      "Developed in-app notification flows and automated partner-facing email reports for periodic data delivery.",
+      "Built charging-location management, realtime charger/session status monitoring, and remote troubleshooting support for station issues."
     ],
     "features": [
       {
         "featureGroup": "Highlights",
         "featureList": [
-          { "title": "Admin modules", "description": "Accounts, locations, payments, transactions, and reports." },
-          { "title": "Marketing tools", "description": "Promotions, bonus top-up, notifications, and subscriptions." },
-          { "title": "Technical monitoring", "description": "Chargers, connectors, outlet status logs, and simulator tooling." }
+          { "title": "Statistics & analytics", "description": "Centralized dashboards for operations, charging sessions, transactions, and decision-oriented analytics." },
+          { "title": "Operations support", "description": "Operational workflows for daily execution, task tracking, and issue coordination across charging locations." },
+          { "title": "Advertising & promotion management", "description": "Configuration and tracking for ad strategies, promotion campaigns, and campaign-level performance." },
+          { "title": "App notifications & partner reporting", "description": "Send in-app notifications to users and automated data-report emails to partners." },
+          { "title": "Charging location management", "description": "Manage charging site inventory, station metadata, charger status, and related operational attributes." },
+          { "title": "Remote station troubleshooting", "description": "Monitor alerts and handle charger fault scenarios remotely without requiring on-site intervention for every issue." },
+          { "title": "System-wide realtime monitoring", "description": "Track live charging sessions across the network in realtime for faster operational response." }
         ]
       }
     ]
@@ -59,7 +63,7 @@
     "id": "s-go",
     "title": "S-Go (SEE) Super App",
     "customer": "IMS Solution",
-    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
+    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Goong Map API"],
     "platform": ["iOS", "Android"],
     "position": "Mobile App Developer",
     "type": "All-in-One Mobility & Commerce App",
@@ -67,10 +71,10 @@
     "linkDownload": "https://skycorp.vn/",
     "description": "S-Go (SEE) is an all-in-one ecosystem app by IMS that combines ride-hailing, delivery, food ordering, and shopping in one unified user experience.",
     "responsibility": [
-      "Developed core user journeys across ride booking, food ordering, shopping, and delivery workflows.",
-      "Implemented realtime map/location tracking, payment flows, and in-app notifications.",
-      "Built key commerce and service screens with production-ready UX for iOS and Android.",
-      "Supported release cycles, hotfixes, and performance optimization in production."
+      "Owned the Food Delivery scope: restaurant discovery, menu selection, cart, order placement, and order tracking flows.",
+      "Implemented merchant onboarding flows, including seller registration and store profile setup.",
+      "Built merchant product-management workflows: create/edit items, pricing, availability, and listing visibility.",
+      "Developed realtime interaction flows between driver, customer, and restaurant across accept, prepare, pickup, and delivery stages."
     ],
     "features": [
       {
@@ -85,29 +89,27 @@
   },
   {
     "id": "sky",
-    "title": "SKY Super App",
+    "title": "SKY",
     "customer": "IMS Solution",
-    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Map API"],
+    "technology": ["React Native CLI", "TypeScript", "Redux Toolkit", "Firebase", "Notifee", "Goong Map API"],
     "platform": ["iOS", "Android"],
     "position": "Mobile App Developer",
-    "type": "Ứng dụng xe công nghệ / Food / Mua sắm / Giao hàng",
+    "type": "Ride-hailing / Food / Shopping / Delivery Super App",
     "member": 3,
     "linkDownload": "https://skycorp.vn/",
-    "description": "Sky là ứng dụng đa dịch vụ do IMS phát triển, tích hợp đặt xe công nghệ, giao đồ ăn, mua sắm trực tuyến và giao hàng trong một nền tảng duy nhất. Ứng dụng tập trung vào trải nghiệm thân thiện, giá minh bạch, theo dõi realtime và vận hành ổn định trên iOS/Android.",
+    "description": "SKY is a multi-service super app developed by IMS, combining ride-hailing, food delivery, online shopping, and parcel delivery in one platform. The app focuses on user-friendly experience, transparent pricing, realtime tracking, and stable production performance on iOS/Android.",
     "responsibility": [
-      "Phát triển các luồng chính cho hệ sinh thái Sky gồm đặt xe, food, mua sắm và giao hàng.",
-      "Xây dựng quy trình đặt dịch vụ end-to-end: tạo đơn, theo dõi trạng thái realtime, thanh toán và lịch sử giao dịch.",
-      "Tích hợp các tính năng hỗ trợ vận hành như định vị, kết nối tài xế gần nhất, thông báo đẩy và xác minh người dùng.",
-      "Tối ưu UI/UX, sửa lỗi production và đảm bảo chất lượng phát hành trên cả iOS và Android."
+      "Developed core journeys across Sky Ride, Sky Food, Sky Mall, and Sky Delivery modules.",
+      "Implemented end-to-end service flows: order creation, realtime status tracking, payment, and transaction history.",
+      "Integrated operational features including geolocation, nearest-driver matching, push notifications, and user verification.",
+      "Improved UI/UX, fixed production issues, and ensured release quality on both iOS and Android."
     ],
     "features": [
       {
         "featureGroup": "Highlights",
         "featureList": [
-          { "title": "Sky Ride – Xe công nghệ", "description": "Đặt xe nhanh chóng, an toàn, giá cả minh bạch. Hệ thống định vị thông minh, kết nối tài xế gần nhất. Hỗ trợ xe máy, ô tô và giao hàng nhanh." },
-          { "title": "Sky Food – Ẩm thực tiện lợi", "description": "Đặt đồ ăn online từ nhiều quán ăn, nhà hàng đối tác. Giao nhanh, đảm bảo chất lượng, tích hợp thanh toán không tiền mặt và ưu đãi." },
-          { "title": "Sky Mall – Mua sắm trực tuyến", "description": "Trải nghiệm thương mại điện tử trong hệ sinh thái Sky với đa dạng ngành hàng như thời trang, gia dụng, công nghệ. Giao hàng tận nơi, tiện lợi và uy tín." },
-          { "title": "Sky Delivery – Giao hàng", "description": "Giao hàng siêu tốc nội thành và liên tỉnh với chi phí hợp lý, theo dõi trạng thái 24/7, hỗ trợ shop online, nhà hàng và doanh nghiệp." }
+          { "title": "Sky Ride", "description": "Book rides quickly and safely with transparent pricing. Smart location matching connects users with nearby drivers for bike/car and express services." },
+          { "title": "Sky Delivery", "description": "Fast in-city and inter-province parcel delivery with 24/7 status tracking, supporting online shops, restaurants, and business operations." }
         ]
       }
     ]
@@ -144,7 +146,7 @@
     "id": "carta",
     "title": "Carta",
     "customer": "IMS Solution",
-    "technology": ["React Native CLI", "JavaScript/TypeScript", "Redux", "Firebase", "i18next"],
+    "technology": ["React Native CLI", "JavaScript/TypeScript", "Redux-Saga", "Firebase", "i18next"],
     "platform": ["iOS", "Android"],
     "position": "Mobile App Developer",
     "type": "Marketplace App",
@@ -171,7 +173,7 @@
     "id": "e-member",
     "title": "Check-in Event App (e-Member)",
     "customer": "IMS Solution",
-    "technology": ["React Native CLI", "JavaScript/TypeScript", "Redux", "Firebase", "React Hook Form"],
+    "technology": ["React Native CLI", "JavaScript/TypeScript", "Redux-Saga", "Firebase", "React Hook Form"],
     "platform": ["iOS", "Android"],
     "position": "Mobile App Developer",
     "type": "Event Check-in & E-ticket Platform",
@@ -198,7 +200,7 @@
     "id": "hong-phuc",
     "title": "Clear Fast (Hong Phuc)",
     "customer": "IMS Solution",
-    "technology": ["React Native CLI", "JavaScript/TypeScript", "Firebase", "Agora", "Redux"],
+    "technology": ["React Native CLI", "JavaScript/TypeScript", "Firebase", "Agora", "Redux-Saga"],
     "platform": ["iOS", "Android"],
     "position": "Mobile App Developer",
     "type": "Housekeeping & Care Service Booking App",
@@ -245,6 +247,36 @@
           { "title": "Growth pages", "description": "Marketing and storytelling pages tailored for partnership and fundraising." },
           { "title": "Lead pipeline", "description": "Contact capture, contact types, and admin processing workflow." },
           { "title": "Support interaction", "description": "Web chat flow connected to backend API for visitor assistance." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gcflow",
+    "title": "GC Flow Admin",
+    "customer": "Personal Business",
+    "technology": ["Next.js", "TypeScript", "Ant Design", "MongoDB", "Mongoose", "next-intl", "Chart.js"],
+    "platform": ["Web", "PWA"],
+    "position": "Full-Stack Developer (Personal Project)",
+    "type": "Personal Business Operations Platform",
+    "member": 1,
+    "description": "GC Flow is a personal business operations platform for managing products sold by weight, price profiles, order approval workflow, and profit tracking across multiple sellers.",
+    "responsibility": [
+      "This was my first API-first project built end-to-end with a 100% API-driven approach, and the MVP was completed in 3 days.",
+      "Designed and implemented the complete operations flow: product management, price profile versioning, order creation, and admin approval lifecycle.",
+      "Built business-critical pricing logic with cost/sale profile snapshots to preserve historical order accuracy.",
+      "Developed seller and customer management flows, including role controls, account status management, and secure authentication.",
+      "Delivered analytics dashboards and export/report tooling to monitor revenue, margin, and operational performance."
+    ],
+    "features": [
+      {
+        "featureGroup": "Highlights",
+        "featureList": [
+          { "title": "Price profile architecture", "description": "Separated COST and SALE profiles with versioning and cloning for flexible business pricing strategy." },
+          { "title": "Approval-first order flow", "description": "Seller-created orders require admin approval, including discount request validation before confirmation." },
+          { "title": "Customer self-order", "description": "Customers can place orders directly via public ordering links, then route into seller/admin processing workflows." },
+          { "title": "Multi-seller operations", "description": "Admin can manage seller/customer accounts, reset credentials, and control active/disabled access." },
+          { "title": "Business analytics", "description": "Dashboard and exports for revenue, margin, order status, and trend tracking by period." }
         ]
       }
     ]

@@ -40,5 +40,12 @@
     "next": "Next image",
     "mainImage": "Open main image of {title}",
     "screenshot": "Open screenshot {index} of {title}"
+  },
+  "MobileProjectCarousel": {
+    "label": "Mobile project cards",
+    "hint": "Auto slide • swipe or use arrows",
+    "previous": "Previous project",
+    "next": "Next project",
+    "privateProject": "Internal project / private distribution (NDA)."
   }
 }

@@ -2,43 +2,50 @@
   "Metadata": {
     "siteTitle": "Phan Hong Quan | Frontend Engineer Portfolio",
     "siteDescription": "Portfolio của Phan Hồng Quân, Frontend Engineer chuyên React Native và Next.js, trình bày dự án theo từng công ty với gallery thực tế và thông tin liên hệ nhanh.",
-    "homeTitle": "Phan Hong Quan | Portfolio du an theo cong ty",
+    "homeTitle": "Phan Hong Quan | Portfolio dự án theo công ty",
     "homeDescription": "Portfolio của Phan Hồng Quân được nhóm theo công ty, showcase ảnh thực tế từng dự án, stack công nghệ và thông tin liên hệ dành cho nhà tuyển dụng.",
     "manifestDescription": "Portfolio của Phan Hồng Quân, Frontend Engineer React Native và Next.js, với gallery dự án thực tế theo từng công ty."
   },
   "FloatingNav": {
-    "mobileContact": "Lien he",
-    "languageLabel": "Ngon ngu"
+    "mobileContact": "Liên hệ",
+    "languageLabel": "Ngôn ngữ"
   },
   "Home": {
-    "navOverview": "Tong quan",
+    "navOverview": "Tổng quan",
     "navEboost": "Eboost",
     "navFreelance": "Freelance",
     "navIms": "IMS",
-    "navContact": "Lien he",
-    "quickContact": "Lien he nhanh",
-    "heroBadge": "Portfolio chi tiet theo cong ty va tung du an",
-    "downloadCv": "Tai CV (Executive PDF)",
-    "contactInfo": "Thong tin lien he",
-    "workTimeline": "Hanh trinh cong viec",
-    "companyGroupLabel": "Nhom cong ty",
-    "metaCustomer": "Khach hang",
-    "metaPlatform": "Nen tang",
-    "metaTeamSize": "Quy mo team",
-    "metaScope": "Pham vi",
-    "featureGroups": "Nhom tinh nang",
-    "responsibilities": "Trach nhiem",
-    "linksAccess": "Link & QR truy cap"
+    "navContact": "Liên hệ",
+    "quickContact": "Liên hệ nhanh",
+    "heroBadge": "Portfolio chi tiết theo công ty và từng dự án",
+    "downloadCv": "Tải CV (Executive PDF)",
+    "contactInfo": "Thông tin liên hệ",
+    "workTimeline": "Hành trình công việc",
+    "companyGroupLabel": "Nhóm công ty",
+    "metaCustomer": "Khách hàng",
+    "metaPlatform": "Nền tảng",
+    "metaTeamSize": "Quy mô team",
+    "metaScope": "Phạm vi",
+    "featureGroups": "Nhóm tính năng",
+    "responsibilities": "Trách nhiệm",
+    "linksAccess": "Link & QR truy cập"
   },
   "ProjectLinkQrGrid": {
-    "privateDistribution": "Du an noi bo / phan phoi rieng tu (NDA)."
+    "privateDistribution": "Dự án nội bộ / phân phối riêng tư (NDA)."
   },
   "ProjectImageGallery": {
     "view": "Xem",
-    "close": "Dong xem anh",
-    "previous": "Anh truoc",
-    "next": "Anh sau",
-    "mainImage": "Mo anh chinh {title}",
-    "screenshot": "Mo anh man hinh {index} cua {title}"
+    "close": "Đóng xem ảnh",
+    "previous": "Ảnh trước",
+    "next": "Ảnh sau",
+    "mainImage": "Mở ảnh chính {title}",
+    "screenshot": "Mở ảnh màn hình {index} của {title}"
+  },
+  "MobileProjectCarousel": {
+    "label": "Dự án trên mobile",
+    "hint": "Tự chạy • vuốt hoặc dùng nút",
+    "previous": "Dự án trước",
+    "next": "Dự án sau",
+    "privateProject": "Dự án nội bộ / phân phối riêng tư (NDA)."
   }
 }
