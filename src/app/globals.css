@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
 
 :root {
   --bg: #f2efe7;
@@ -111,4 +113,17 @@ canvas {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.mobile-project-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.mobile-project-swiper .swiper-slide {
+  height: auto;
+}
+
+.mobile-carousel-nav.swiper-button-disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }

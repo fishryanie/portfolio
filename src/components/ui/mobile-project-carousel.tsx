@@ -1,9 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useId, useMemo } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import type { PortfolioProject } from "@/data/portfolio";
 
 type MobileProjectCarouselProps = {
@@ -21,8 +23,9 @@ function clampLinkLabel(link: string): string {
 
 export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) {
   const t = useTranslations("MobileProjectCarousel");
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const autoPauseUntilRef = useRef(0);
+  const sliderId = useId().replace(/[:]/g, "");
+  const prevClass = `mobile-project-prev-${sliderId}`;
+  const nextClass = `mobile-project-next-${sliderId}`;
 
   const cards = useMemo(
     () =>
@@ -33,91 +36,11 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
     [projects],
   );
 
-  const getCardOffsets = useCallback(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) {
-      return [];
-    }
-
-    const cardsInDom = Array.from(
-      viewport.querySelectorAll<HTMLElement>("[data-carousel-card]"),
-    );
-    return cardsInDom.map((card) => card.offsetLeft);
-  }, []);
-
-  const pauseAutoplay = useCallback((durationMs = 5500) => {
-    autoPauseUntilRef.current = Date.now() + durationMs;
-  }, []);
-
-  const getClosestIndex = useCallback((scrollLeft: number, offsets: number[]) => {
-    if (offsets.length === 0) {
-      return 0;
-    }
-
-    let bestIndex = 0;
-    let bestDistance = Math.abs(offsets[0] - scrollLeft);
-
-    for (let index = 1; index < offsets.length; index += 1) {
-      const distance = Math.abs(offsets[index] - scrollLeft);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        bestIndex = index;
-      }
-    }
-
-    return bestIndex;
-  }, []);
-
-  const paginateByCard = useCallback(
-    (step: 1 | -1, isUserAction: boolean) => {
-      const viewport = viewportRef.current;
-      if (!viewport) {
-        return;
-      }
-
-      const offsets = getCardOffsets();
-      if (offsets.length < 2) {
-        return;
-      }
-
-      const currentIndex = getClosestIndex(viewport.scrollLeft, offsets);
-      const nextIndex =
-        (currentIndex + step + offsets.length) % offsets.length;
-
-      if (isUserAction) {
-        pauseAutoplay();
-      }
-
-      viewport.scrollTo({
-        left: offsets[nextIndex],
-        behavior: "smooth",
-      });
-    },
-    [getCardOffsets, getClosestIndex, pauseAutoplay],
-  );
-
-  useEffect(() => {
-    const viewport = viewportRef.current;
-    if (!viewport || cards.length < 2) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      if (Date.now() < autoPauseUntilRef.current) {
-        return;
-      }
-
-      paginateByCard(1, false);
-    }, 3600);
-
-    return () => {
-      window.clearInterval(intervalId);
-    };
-  }, [cards.length, paginateByCard]);
-
   if (cards.length === 0) {
     return null;
   }
+
+  const hasMultipleSlides = cards.length > 1;
 
   return (
     <section className="relative">
@@ -130,8 +53,7 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
 
       <button
         type="button"
-        onClick={() => paginateByCard(-1, true)}
-        className="absolute left-2 top-[34%] z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:color-mix(in_oklab,var(--card)_84%,white)] text-[var(--ink)] shadow-lg shadow-[color:var(--shadow)]"
+        className={`${prevClass} mobile-carousel-nav absolute left-2 top-[34%] z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:color-mix(in_oklab,var(--card)_84%,white)] text-[var(--ink)] shadow-lg shadow-[color:var(--shadow)]`}
         aria-label={t("previous")}
       >
         <ChevronLeft className="h-6 w-6" />
@@ -139,25 +61,48 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
 
       <button
         type="button"
-        onClick={() => paginateByCard(1, true)}
-        className="absolute right-2 top-[34%] z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:color-mix(in_oklab,var(--card)_84%,white)] text-[var(--ink)] shadow-lg shadow-[color:var(--shadow)]"
+        className={`${nextClass} mobile-carousel-nav absolute right-2 top-[34%] z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:color-mix(in_oklab,var(--card)_84%,white)] text-[var(--ink)] shadow-lg shadow-[color:var(--shadow)]`}
         aria-label={t("next")}
       >
         <ChevronRight className="h-6 w-6" />
       </button>
 
-      <div
-        ref={viewportRef}
-        className="no-scrollbar -mx-[2.5vw] flex snap-x snap-mandatory gap-4 overflow-x-auto px-[2.5vw] pb-2"
-        onTouchStart={() => pauseAutoplay()}
+      <Swiper
+        modules={[Autoplay, Navigation]}
+        className="mobile-project-swiper"
+        slidesPerView={1.08}
+        slidesPerGroup={1}
+        spaceBetween={16}
+        grabCursor
+        loop={hasMultipleSlides}
+        autoplay={
+          hasMultipleSlides
+            ? {
+                delay: 3200,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }
+            : false
+        }
+        navigation={{
+          prevEl: `.${prevClass}`,
+          nextEl: `.${nextClass}`,
+        }}
+        breakpoints={{
+          420: {
+            slidesPerView: 1.16,
+          },
+          560: {
+            slidesPerView: 1.32,
+          },
+          700: {
+            slidesPerView: 1.55,
+          },
+        }}
       >
         {cards.map((project) => (
-          <article
-            key={project.id}
-            data-carousel-card
-            className="w-[84vw] max-w-[352px] shrink-0 snap-center"
-          >
-            <div className="h-[500px] overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] shadow-xl shadow-[color:var(--shadow)]">
+          <SwiperSlide key={project.id} className="!h-auto pb-2">
+            <article className="h-[500px] overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] shadow-xl shadow-[color:var(--shadow)]">
               <div className="relative aspect-[16/10] border-b border-[var(--border-soft)] bg-gradient-to-br from-white/70 via-[var(--accent-3)]/10 to-[var(--accent-2)]/10">
                 <Image
                   src={project.image}
@@ -200,10 +145,10 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
                   )}
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </section>
   );
 }
