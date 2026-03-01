@@ -143,12 +143,14 @@ export default async function Home({ params }: HomePageProps) {
                   <a
                     key={item.label}
                     href={item.href}
-                    className="group flex items-center justify-between rounded-2xl border border-[var(--border-soft)] bg-white/55 px-3 py-2 text-sm text-[var(--muted)] transition-colors hover:border-[var(--accent-2)] hover:text-[var(--ink)]"
+                    className="group rounded-2xl border border-[var(--border-soft)] bg-white/55 px-3 py-2 text-sm text-[var(--muted)] transition-colors hover:border-[var(--accent-2)] hover:text-[var(--ink)]"
                   >
-                    <span>{item.label}</span>
-                    <span className="truncate pl-3 text-right">
-                      {item.value}
-                    </span>
+                    <div className="flex flex-col gap-0.5 sm:grid sm:grid-cols-[92px_minmax(0,1fr)] sm:items-center sm:gap-2">
+                      <span className="font-medium text-[var(--ink)]/85">{item.label}</span>
+                      <span className="min-w-0 break-all text-left sm:text-right">
+                        {item.value}
+                      </span>
+                    </div>
                   </a>
                 ))}
               </div>
@@ -202,16 +204,13 @@ export default async function Home({ params }: HomePageProps) {
         </Reveal>
       </section>
 
-      <div className="mx-auto mt-16 grid w-[min(1180px,95vw)] gap-16">
+      <div className="mx-auto mt-16 grid w-[min(1180px,95vw)] grid-cols-1 gap-16">
         {groupedProjects.map((company, companyIndex) => (
-          <section key={company.id} id={`company-${company.id}`}>
+          <section key={company.id} id={`company-${company.id}`} className="min-w-0">
             <Reveal>
               <div className="flex flex-wrap items-end justify-between gap-5">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-                    {t("companyGroupLabel")}
-                  </p>
-                  <h2 className="mt-2 font-display text-3xl text-[var(--ink)] sm:text-4xl">
+                  <h2 className="font-display text-3xl text-[var(--ink)] sm:text-4xl">
                     {company.name}
                   </h2>
                   <p className="mt-2 flex items-center gap-2 text-sm text-[var(--muted)]">
@@ -236,10 +235,8 @@ export default async function Home({ params }: HomePageProps) {
               </ul>
             </Reveal>
 
-            <div className="mt-6 md:hidden">
-              <Reveal delay={0.06}>
-                <MobileProjectCarousel projects={company.projects} />
-              </Reveal>
+            <div className="mt-6 min-w-0 md:hidden">
+              <MobileProjectCarousel projects={company.projects} />
             </div>
 
             <div className="mt-6 hidden gap-6 md:grid">

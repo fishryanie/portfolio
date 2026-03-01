@@ -44,8 +44,20 @@
   "MobileProjectCarousel": {
     "label": "Mobile project cards",
     "hint": "Auto slide • swipe or use arrows",
+    "viewDetail": "View details",
     "previous": "Previous project",
     "next": "Next project",
     "privateProject": "Internal project / private distribution (NDA)."
+  },
+  "ProjectDetail": {
+    "backToPortfolio": "Back to portfolio",
+    "metaCustomer": "Customer",
+    "metaPlatform": "Platform",
+    "metaTeamSize": "Team Size",
+    "metaScope": "Scope",
+    "featureGroups": "Feature Groups",
+    "responsibilities": "Responsibilities",
+    "linksAccess": "Links & Access",
+    "noFeatureData": "No detailed feature-group data for this project."
   }
 }

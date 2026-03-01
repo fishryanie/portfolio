@@ -232,7 +232,7 @@ const profileContent: Record<
   vi: {
     role: "Frontend Engineer (React Native / React / Next.js)",
     headline:
-      "Mình làm frontend cho mobile và web admin, ưu tiên sản phẩm chạy ổn định khi release, mượt khi dùng và dễ mở rộng khi business tăng trưởng.",
+      "Hơn 4 năm xây dựng và mở rộng các hệ thống frontend production. Mạnh về triển khai các luồng nghiệp vụ phức tạp, tích hợp dịch vụ bên thứ ba và duy trì chất lượng phát hành trong môi trường sản phẩm đang vận hành liên tục.",
     location: "Gò Vấp, Hồ Chí Minh, Việt Nam",
   },
   en: {
@@ -652,6 +652,14 @@ export function getGroupedProjects(locale: AppLocale) {
     ...company,
     projects: projects.filter((project) => project.companyId === company.id),
   }));
+}
+
+export function getProjectById(locale: AppLocale, projectId: string) {
+  return buildProjects(locale).find((project) => project.id === projectId) ?? null;
+}
+
+export function getProjectIds(locale: AppLocale) {
+  return buildProjects(locale).map((project) => project.id);
 }
 
 export function getHeroStats(locale: AppLocale): HeroStat[] {

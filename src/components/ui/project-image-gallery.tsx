@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
@@ -21,6 +21,7 @@ export function ProjectImageGallery({
   const shouldReduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
+  const thumbnailTrackRef = useRef<HTMLDivElement | null>(null);
 
   const imageList = useMemo(() => {
     const output: string[] = [];
@@ -85,6 +86,18 @@ export function ProjectImageGallery({
     [wrapIndex],
   );
 
+  const scrollThumbnails = useCallback((step: number) => {
+    const track = thumbnailTrackRef.current;
+    if (!track) {
+      return;
+    }
+
+    track.scrollBy({
+      left: step * 280,
+      behavior: "smooth",
+    });
+  }, []);
+
   useEffect(() => {
     if (activeIndex === null) {
       return;
@@ -119,7 +132,7 @@ export function ProjectImageGallery({
 
   return (
     <>
-      <div className="border-b border-[var(--border-soft)] lg:border-b-0 lg:border-r">
+      <div className="min-w-0 border-b border-[var(--border-soft)] lg:border-b-0 lg:border-r">
         <button
           type="button"
           onClick={() => openImage(coverImage)}
@@ -140,25 +153,49 @@ export function ProjectImageGallery({
         </button>
 
         {thumbnailImages.length > 0 ? (
-          <div className="grid grid-cols-2 gap-2 border-t border-[var(--border-soft)] bg-white/55 p-3 sm:grid-cols-3">
-            {thumbnailImages.map((imageSrc, index) => (
-              <button
-                key={`${title}-gallery-${imageSrc}`}
-                type="button"
-                onClick={() => openImage(imageSrc)}
-                className="group relative aspect-[9/16] overflow-hidden rounded-xl border border-[var(--border-soft)] bg-white text-left"
-                aria-label={t("screenshot", { index: index + 1, title })}
-              >
-                <Image
-                  src={imageSrc}
-                  alt={`${title} screenshot ${index + 1}`}
-                  fill
-                  sizes="(max-width: 1024px) 30vw, 108px"
-                  className="object-cover"
-                />
-                <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
-              </button>
-            ))}
+          <div className="relative border-t border-[var(--border-soft)] bg-white/55 px-3 py-2.5">
+            <button
+              type="button"
+              onClick={() => scrollThumbnails(-1)}
+              className="absolute left-3 top-1/2 z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white/90 text-[var(--ink)] shadow-sm"
+              aria-label={t("previous")}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollThumbnails(1)}
+              className="absolute right-3 top-1/2 z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white/90 text-[var(--ink)] shadow-sm"
+              aria-label={t("next")}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
+            <div
+              ref={thumbnailTrackRef}
+              className="no-scrollbar min-w-0 w-full max-w-full touch-pan-x overflow-x-auto overscroll-x-contain px-10 pb-0.5 pt-0.5 [-webkit-overflow-scrolling:touch]"
+            >
+              <div className="inline-flex snap-x gap-2">
+                {thumbnailImages.map((imageSrc, index) => (
+                  <button
+                    key={`${title}-gallery-${imageSrc}`}
+                    type="button"
+                    onClick={() => openImage(imageSrc)}
+                    className="group relative aspect-[9/16] w-[88px] shrink-0 snap-start overflow-hidden rounded-xl border border-[var(--border-soft)] bg-white text-left sm:w-[96px]"
+                    aria-label={t("screenshot", { index: index + 1, title })}
+                  >
+                    <Image
+                      src={imageSrc}
+                      alt={`${title} screenshot ${index + 1}`}
+                      fill
+                      sizes="96px"
+                      className="object-cover"
+                    />
+                    <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         ) : null}
       </div>

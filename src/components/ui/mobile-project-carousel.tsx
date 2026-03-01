@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { PortfolioProject } from "@/data/portfolio";
+import { Link, usePathname } from "@/i18n/navigation";
+import { routing, type AppLocale } from "@/i18n/routing";
 
 type MobileProjectCarouselProps = {
   projects: PortfolioProject[];
@@ -23,9 +25,14 @@ function clampLinkLabel(link: string): string {
 
 export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) {
   const t = useTranslations("MobileProjectCarousel");
+  const pathname = usePathname();
   const sliderId = useId().replace(/[:]/g, "");
   const prevClass = `mobile-project-prev-${sliderId}`;
   const nextClass = `mobile-project-next-${sliderId}`;
+  const firstSegment = pathname.split("/").filter(Boolean)[0];
+  const locale: AppLocale = routing.locales.includes(firstSegment as AppLocale)
+    ? (firstSegment as AppLocale)
+    : routing.defaultLocale;
 
   const cards = useMemo(
     () =>
@@ -43,14 +50,7 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
   const hasMultipleSlides = cards.length > 1;
 
   return (
-    <section className="relative">
-      <div className="mb-3 flex items-center justify-between">
-        <p className="text-xs uppercase tracking-[0.15em] text-[var(--muted)]">
-          {t("label")}
-        </p>
-        <p className="text-xs text-[var(--muted)]">{t("hint")}</p>
-      </div>
-
+    <section className="relative w-full min-w-0">
       <button
         type="button"
         className={`${prevClass} mobile-carousel-nav absolute left-2 top-[34%] z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[color:color-mix(in_oklab,var(--card)_84%,white)] text-[var(--ink)] shadow-lg shadow-[color:var(--shadow)]`}
@@ -69,18 +69,23 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
 
       <Swiper
         modules={[Autoplay, Navigation]}
-        className="mobile-project-swiper"
+        className="mobile-project-swiper w-full min-w-0"
         slidesPerView={1.08}
         slidesPerGroup={1}
         spaceBetween={16}
         grabCursor
-        loop={hasMultipleSlides}
+        loop={false}
+        rewind={hasMultipleSlides}
+        watchOverflow
+        observer
+        observeParents
         autoplay={
           hasMultipleSlides
             ? {
                 delay: 3200,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
+                stopOnLastSlide: false,
               }
             : false
         }
@@ -102,7 +107,7 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
       >
         {cards.map((project) => (
           <SwiperSlide key={project.id} className="!h-auto pb-2">
-            <article className="h-[500px] overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] shadow-xl shadow-[color:var(--shadow)]">
+            <article className="overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--card)] shadow-xl shadow-[color:var(--shadow)]">
               <div className="relative aspect-[16/10] border-b border-[var(--border-soft)] bg-gradient-to-br from-white/70 via-[var(--accent-3)]/10 to-[var(--accent-2)]/10">
                 <Image
                   src={project.image}
@@ -112,7 +117,7 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
                   className="object-contain p-5"
                 />
               </div>
-              <div className="flex h-[280px] flex-col p-4">
+              <div className="flex flex-col p-4">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="min-h-[3.2rem] overflow-hidden font-display text-[clamp(1.15rem,5vw,1.45rem)] leading-tight text-[var(--ink)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
                     {project.title}
@@ -121,14 +126,17 @@ export function MobileProjectCarousel({ projects }: MobileProjectCarouselProps) 
                     {project.period}
                   </span>
                 </div>
-                <p className="mt-2 min-h-[3rem] overflow-hidden text-sm leading-6 text-[var(--muted)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+                <p className="mt-2 overflow-hidden text-sm leading-6 text-[var(--muted)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
                   {project.type}
                 </p>
-                <p className="mt-2 min-h-[5.25rem] overflow-hidden text-[15px] leading-7 text-[var(--muted)] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
-                  {project.description}
-                </p>
 
-                <div className="mt-auto pt-4">
+                <div className="mt-4 flex flex-wrap items-center gap-2">
+                  <Link
+                    href={`/${locale}/projects/${project.id}`}
+                    className="inline-flex items-center rounded-full bg-[var(--ink)] px-3 py-1.5 text-xs font-semibold text-white"
+                  >
+                    {t("viewDetail")}
+                  </Link>
                   {project.primaryLink ? (
                     <a
                       href={project.primaryLink.link}

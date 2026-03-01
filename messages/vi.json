@@ -44,8 +44,20 @@
   "MobileProjectCarousel": {
     "label": "Dự án trên mobile",
     "hint": "Tự chạy • vuốt hoặc dùng nút",
+    "viewDetail": "Xem chi tiết",
     "previous": "Dự án trước",
     "next": "Dự án sau",
     "privateProject": "Dự án nội bộ / phân phối riêng tư (NDA)."
+  },
+  "ProjectDetail": {
+    "backToPortfolio": "Quay lại portfolio",
+    "metaCustomer": "Khách hàng",
+    "metaPlatform": "Nền tảng",
+    "metaTeamSize": "Quy mô team",
+    "metaScope": "Phạm vi",
+    "featureGroups": "Nhóm tính năng",
+    "responsibilities": "Trách nhiệm",
+    "linksAccess": "Link & QR truy cập",
+    "noFeatureData": "Dự án không có dữ liệu nhóm tính năng chi tiết."
   }
 }
