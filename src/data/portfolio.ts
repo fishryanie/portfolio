@@ -238,7 +238,7 @@ const profileContent: Record<
   en: {
     role: "Frontend Engineer (React Native / React / Next.js)",
     headline:
-      "Building production-grade mobile apps and web admin platforms with a focus on release stability, performance, and scalable product growth.",
+      "4+ years building and scaling production frontend systems. Strong in implementing complex user flows, integrating third-party services, and maintaining release quality in active product environments.",
     location: "Go Vap, Ho Chi Minh City, Vietnam",
   },
 };

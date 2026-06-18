@@ -4,6 +4,8 @@ Ho Chi Minh City, Vietnam
 Phone: +84 979 955 925
 Email: qphanquan1998@gmail.com
 Portfolio: https://cv-dev-portfolio.vercel.app
+Availability: Available to start within 1 week after receiving an offer
+English: Reading and writing
 
 PROFESSIONAL SUMMARY
 Frontend Engineer with 4+ years of experience building production-grade mobile and web products.
@@ -11,7 +13,7 @@ Specialized in React Native and Next.js with strong delivery capability across E
 Experienced in end-to-end frontend lifecycle: feature delivery, integration, debugging, optimization, and release support.
 
 CORE SKILLS
-Frontend & Mobile: React Native CLI, Next.js (App Router), React, TypeScript, JavaScript, React Navigation.
+Frontend & Mobile: React Native CLI, Next.js (App Router), React, Vite, React Router, TypeScript, JavaScript (ES6+), React Navigation.
 State & Data: Redux Toolkit, Redux Saga, MobX, MobX-State-Tree, React Query, REST API integration.
 Infra & Integrations: Firebase, Notifee, MQTT, Goong Map API, maps/location APIs, AppCenter CodePush.
 UI/Design System: Ant Design, reusable component architecture, responsive and scalable UI modules.
@@ -24,7 +26,7 @@ Scope:
 Responsibilities:
 - Built EV charging app flows: station map, QR scan, outlet details, charging sessions, wallet top-up, transaction history.
 - Implemented notification and realtime updates for charging status and account activities.
-- Single-handedly delivered CMS modules for analytics, operations support, promotion workflows, app notifications, and partner report emails.
+- Single-handedly delivered the main Ant Design-based CMS dashboard and modules for analytics, operations support, promotion workflows, app notifications, and partner report emails.
 - Built charging location/station status monitoring and remote issue handling flows for the operations team.
 - Improved release stability by fixing production issues and standardizing feature rollout workflows.
 Tech stack:
@@ -147,4 +149,4 @@ EDUCATION & TRAINING
 - CodeStar Academy | DevOps on AWS | Aug 2022 - Oct 2022
 
 ATS KEYWORDS
-React Native, Next.js, React, TypeScript, JavaScript, Frontend Engineer, Mobile App Developer, Redux Toolkit, Redux Saga, MobX, MobX-State-Tree, React Query, Firebase, REST API, AppCenter CodePush, Ant Design, Chart.js, Goong Map API, MQTT, Performance Optimization, Product Delivery.
+React Native, Next.js, React, Vite, React Router, TypeScript, JavaScript ES6+, Frontend Engineer, Mobile App Developer, Redux Toolkit, Redux Saga, MobX, MobX-State-Tree, React Query, Firebase, REST API, AppCenter CodePush, Ant Design, Chart.js, Goong Map API, MQTT, Performance Optimization, Product Delivery, English Reading and Writing.
